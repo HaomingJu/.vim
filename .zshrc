@@ -35,7 +35,7 @@ ZSH_THEME="af-magic"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -120,7 +120,7 @@ export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
-setopt HIST_IGNORE_DUPS
+#setopt HIST_IGNORE_DUPS
 #为历史纪录中的命令添加时间戳
 setopt EXTENDED_HISTORY      
  
@@ -133,40 +133,6 @@ setopt PUSHD_IGNORE_DUPS
 #setopt HIST_IGNORE_SPACE
 #}}}
  
-#每个目录使用独立的历史纪录{{{
-cd() {
-builtin cd "$@"                             # do actual cd
-fc -W                                       # write current history  file
-local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
-if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
-mkdir -p "$HISTDIR"
-fi
-export HISTFILE="$HISTDIR/zhistory"     # set new history file
-touch $HISTFILE
-local ohistsize=$HISTSIZE
-HISTSIZE=0                              # Discard previous dir's history
-HISTSIZE=$ohistsize                     # Prepare for new dir's history
-fc -R                                       #read from current histfile
-}
-mkdir -p $HOME/.zsh_history$PWD
-export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
- 
-function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
-function convhistory {
-sort $1 | uniq |
-sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
-awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'
-}
-#使用 histall 命令查看全部历史纪录
-function histall { convhistory =(allhistory) |
-sed '/^.\{20\} *cd/i\\' }
-#使用 hist 查看当前目录历史纪录
-function hist { convhistory $HISTFILE }
- 
-#全部历史纪录 top50
-function top50 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 50 }
- 
-#}}}
  
 #杂项 {{{
 #允许在交互模式中使用注释  例如：
@@ -318,7 +284,8 @@ alias pacman='sudo pacman-color'
 alias p='sudo pacman-color'
 alias y='yaourt'
 alias h='htop'
-alias vim='sudo vim'
+alias g='git status'
+alias t='tig'
  
 #[Esc][h] man 当前命令时，显示简短说明
 alias run-help >&/dev/null && unalias run-help
