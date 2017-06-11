@@ -1,114 +1,117 @@
-"Author : Haoming.Ju
-"You maybe need to run commands list
-"sudo apt-get install clang-format-3.8
-"sudo apt-get install silversearcher-ag
-"sudo pip install ici
-"sudo apt-get install ctags
-"sudo apt-get install cmake
-"sudo apt-get install python-dev
-"sudo apt-get install clang
-"cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
-"./install.sh --clang-completer
-"Finally : you maybe need to fix value : g:ycm_global_ycm_extra_conf
+" 2017年夏 南京
 
-"Map Key Instrution
-"<F2>   移动光标到当前行行首
-"<F3>   移动光标到当前行行尾
-"<F7>   格式化代码
-"<F10>  开闭NERDTree目录窗口
-"<F11>  开闭全屏
-"<F12>  开闭函数结构窗口
-"<C-f>  调用EasyGrep,进行搜索
-"<C-p>  调用CTRLP，进行文件搜索
-"<C-h>  光标窗口间移动，左移
-"<C-j>  光标窗口间移动，下移
-"<C-k>  光标窗口间移动，上移
-"<C-l>  光标窗口间移动，右移
-"<C-s>  未定义，为Terminal快捷键，冻结窗口
-"<C-q>  未定义，为Terminal快捷键，解冻窗口
-"fw     文件写入
-"fq     如果文件无改动，返回Terminal前端。fg可返回vim窗口
+" 在使用该配置之前可能需要执行以下命令来配置相关依赖环境
+" sudo apt-get install clang-format-3.8
+" sudo apt-get install vim-nox
+" sudo apt-get install vim-gui-common
+" sudo apt-get install silversearcher-ag
+" sudo pip install ici
+" sudo apt-get install ctags
+" sudo apt-get install cmake
+" sudo apt-get install python-dev
+" sudo apt-get install clang
+"
+" 关于YouCompleteMe的编译注意事项
+" cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
+" ./install.sh --clang-completer
+" [Finally] : you maybe need to fix value : g:ycm_global_ycm_extra_conf
+
+" 关于Clang-Format插件的注意事项
+" clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
+" 可以删除/usr/bin/clang-format，然后做软连接"ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8"
 
 
+
+
+" 启动语法检测
 if has("syntax")
   syntax on
 endif
 
-set showcmd         " Show (partial) command in status line.
-set showmatch       " Show matching brackets.
-set ignorecase      " Do case insensitive matching
-set smartcase       " Do smart case matching
-set mouse=a         " Enable mouse usage (all modes)
-set number          " Enable show line number   
-set nocompatible    " no vi model
-set backspace=indent,eol,start
-set tabstop=4
-set expandtab
-set list
-set listchars=tab:>-,trail:-  
-set shiftwidth=4
-set noswapfile
-set foldenable
-"set foldmethod=manual
-"set foldmethod=syntax
-"set foldmethod=indent
-set hlsearch
-set incsearch
-set cursorline      " highlight the line that cursor be at      
-set cursorcolumn    " highlight the colum that cursor be at 
-set autoread
-set clipboard+=unnamed
+" 其他设置
+set showcmd                         " 显示输入的命令
+set showmatch                       " 设置匹配模式，显示匹配的括号
+set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
+set magic                           " 设置魔术
+set number                          " 显示行号
+set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
+set backspace=indent,eol,start      " 使退格键可以正常使用
+set noswapfile                      " 禁止生成临时文件
+set foldenable                      " 开启折叠选项
+set autoread                        " 当文件被改动时自动载入
 
+" 设置Tab相关设置
+set tabstop=4                       " 设置制表符tab键的宽度为4空格
+set expandtab                       " 用空格替代制表符
+set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
+set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
+set shiftwidth=4                    " 自动缩进使用4个空格"
 
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+" 设置当前缓冲区的搜索选项
+set ignorecase                      " 忽略大小写
+set smartcase                       " 开启智能大小写敏感
+set hlsearch                        " 高亮搜索得到的结果
+set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
+
+" 高亮光标所在行和列
+set cursorline                      " 高亮光标所在行
+set cursorcolumn                    " 高亮光标所在列
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置行高亮的颜色
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置列高亮的颜色
 highlight VertSplit ctermbg=0 ctermfg=0
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Plugin Manager
+" 插件安装管理器要安装的插件列表
 call plug#begin()
-Plug 'https://github.com/HaomingJu/nerdtree.git'
-Plug 'https://github.com/HaomingJu/vim-airline.git'
-Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'
-Plug 'https://github.com/HaomingJu/nerdcommenter.git'
-Plug 'https://github.com/HaomingJu/CTags.git'
-Plug 'https://github.com/HaomingJu/taglist.vim.git'
-Plug 'https://github.com/HaomingJu/YouCompleteMe.git'
-Plug 'https://github.com/HaomingJu/ctrlp.vim.git'
+Plug 'https://github.com/HaomingJu/nerdtree.git'                    "NERDTree插件:      显示目录树形结构
+Plug 'https://github.com/HaomingJu/vim-airline.git'                 "Airline插件:       优化下方状态栏
+Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursors插件:  用于多光标输入操作
+Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
+Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件：        用于跳转
+Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插件：      用于显示函数列表
+Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
+Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'
-Plug 'https://github.com/HaomingJu/EasyGrep.git'
-Plug 'https://github.com/HaomingJu/echofunc.git'
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'
-Plug 'https://github.com/HaomingJu/vim-clang-format.git'
-Plug 'https://github.com/HaomingJu/ale.git'
-Plug 'https://github.com/HaomingJu/YCM-Generator.git'
-Plug 'https://github.com/HaomingJu/bufexplorer.git'
+Plug 'https://github.com/HaomingJu/EasyGrep.git'                    "EasyGrep插件：     用于文本搜索
+Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
+Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
+Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
+Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
+Plug 'https://github.com/HaomingJu/bufexplorer.git'                 "BufExplorer插件：  用于显示缓冲区
 Plug 'https://github.com/HaomingJu/conque-term.git'
-Plug 'https://github.com/HaomingJu/Auto-Pairs.git'
-Plug 'https://github.com/HaomingJu/pydiction.git'
-Plug 'https://github.com/HaomingJu/color_coded.git'
+Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
+Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
+Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
 call plug#end()
 
 
+"NERDTree 插件配置
+autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧
+let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
+let NERDTreeChDirMode=2         " 可修改root路径
+let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
+"let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
 
-"NERDTree Configure
-autocmd vimenter * NERDTree
-let NERDTreeWinSize=31
-
-"TlistToggle Configure
-"autocmd vimenter * TlistToggle
-let Tlist_Use_Right_Window=1
-let Tlist_WinWidth=60
-let Tlist_Show_One_File=1
-let Tlist_Auto_Highlight_Tag=1
-let Tlist_Auto_Update=1
+"TlistToggle 插件配置
+"autocmd vimenter * TlistToggle " vim启动时，自动打开函数结构图(弃用，现通过F12键唤醒)
+let Tlist_Use_Right_Window=1    " 在右侧显示
+let Tlist_WinWidth=60           " 界面宽度为60
+let Tlist_Show_One_File=1       " 只显示当前缓冲区的函数结构
+let Tlist_Auto_Highlight_Tag=1  " 自动高亮当前所在函数
+let Tlist_Auto_Update=1         " 只显示当前缓冲区的内容
 let Tlist_Compact_Format=1
 
-"YouCompleteMe Configure
+"YouCompleteMe 插件配置
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
+
+"Pydiction 插件配置
 let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
 
-"Clang-Format
+"Clang-Format 插件配置
+" 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
 let g:clang_format#style_options = {
             \ "BasedOnStyle" : "Google",
             \ "Standard" : "C++11",
@@ -135,42 +138,43 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -2,
             \ "SpaceBeforeParens" : "Never"}
 
-"Exploter Configure
+"BufExplorer 插件配置
 let g:bufExplorerDefaultHelp=0
-let g:ycm_confirm_extra_conf=0    "打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_collect_identifiers_from_tag_files = 1 "使用ctags生成的tags文件"
 
-nmap <C-H> <C-W>h 
-nmap <C-J> <C-W>j 
-nmap <C-K> <C-W>k 
-nmap <C-L> <C-W>l 
-map <C-F> :Grep 
 
-nmap m gd
-nmap ci \ci
-nmap fw :w<CR>
-nmap fq <Esc><C-z><CR>
-nmap q <Esc>:q<CR>
-map <C-Y> bvey
-map <F4> :bn<CR>
+" 快捷键位绑定
+nmap <C-H> <C-W>h               " 窗口间光标跳转---向左
+nmap <C-J> <C-W>j               " 窗口间光标跳转---向下
+nmap <C-K> <C-W>k               " 窗口间光标跳转---向上
+nmap <C-L> <C-W>l               " 窗口间光标跳转---向右
+vmap <C-c> "+y                  " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
+map <C-F> :Grep                 " 待调试
 
-nmap fw :w<CR>
-nmap fq <Esc><C-z><CR>
-nmap q <Esc>:q<CR>
-nmap <F12> :TlistToggle<CR>
-nmap <F10> :NERDTreeToggle<CR>
-nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
+nmap m gd                       " 高亮光标所在的单词
+nmap ci \ci                     " 注释光标所在的行
+"nmap fw :w<CR>                  " 保存当前缓冲区文件
+nmap fq <Esc><C-z><CR>          " 暂时退出VIM
+nmap q <Esc>:q<CR>              " 关闭光标所在的缓冲区
 
+map <F2> :bp<CR>                " 跳到上一个缓冲区
+map <F3> :bn<CR>                " 跳到下一个缓冲区
+map <F7> :ClangFormat<CR>       " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
+map <F9> :BufExplorer<CR>       " 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
+map <F10> :NERDTreeToggle<CR>   " 开闭目录树窗口"
+map <F12> :TlistToggle<CR>      " 开闭函数结构窗口
 
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
-map <F2> :bp<CR>
-map <F3> :bn<CR>
-map <F7> :ClangFormat<CR>
-map <F9> :BufExplorer<CR>
-map <F10> :NERDTreeToggle<CR>
-map <F12> :TlistToggle<CR>
-map <C-F> :Grep 
-let g:ConqueTerm_ToggleKey = '<F8>'
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-vmap <C-c> "+y
 
+
+
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Author        :       Haoming.Ju                      "
+" Email         :       juhaoming@126.com               "
+" Blog Address  :       http://blog.csdn.net/i_am_tom   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
