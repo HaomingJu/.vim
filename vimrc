@@ -70,7 +70,7 @@ Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件
 Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插件：      用于显示函数列表
 Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
-Plug 'https://github.com/HaomingJu/ag.vim.git'
+Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于文本搜索
 Plug 'https://github.com/HaomingJu/EasyGrep.git'                    "EasyGrep插件：     用于文本搜索
 Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
@@ -78,7 +78,7 @@ Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Forma
 Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
 Plug 'https://github.com/HaomingJu/bufexplorer.git'                 "BufExplorer插件：  用于显示缓冲区
-Plug 'https://github.com/HaomingJu/conque-term.git'
+Plug 'https://github.com/HaomingJu/conque-term.git'                 "Conque-term插件:   用于在VIM中开辟内置的命令行窗口
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
@@ -151,7 +151,7 @@ vmap <C-c> "+y                  " 在Visual模式下，组合键Ctrl+c可以将�
 map <C-F> :Grep                 " 待调试
 
 nmap m gd                       " 高亮光标所在的单词
-nmap ci \ci                     " 注释光标所在的行
+map ci \ci                     " 注释光标所在的行
 "nmap fw :w<CR>                  " 保存当前缓冲区文件
 nmap fq <Esc><C-z><CR>          " 暂时退出VIM
 nmap q <Esc>:q<CR>              " 关闭光标所在的缓冲区
