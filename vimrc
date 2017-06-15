@@ -39,6 +39,8 @@ set backspace=indent,eol,start      " 使退格键可以正常使用
 set noswapfile                      " 禁止生成临时文件
 set foldenable                      " 开启折叠选项
 set autoread                        " 当文件被改动时自动载入
+set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
+set wildmode=list:longest           " 在命令行中，按下Tab键，显示当前所有可能的命令
 
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
@@ -70,7 +72,7 @@ Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件
 Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插件：      用于显示函数列表
 Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
-Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于文本搜索
+Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
 Plug 'https://github.com/HaomingJu/EasyGrep.git'                    "EasyGrep插件：     用于文本搜索
 Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
@@ -148,11 +150,11 @@ nmap <C-J> <C-W>j               " 窗口间光标跳转---向下
 nmap <C-K> <C-W>k               " 窗口间光标跳转---向上
 nmap <C-L> <C-W>l               " 窗口间光标跳转---向右
 vmap <C-c> "+y                  " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
-map <C-F> :Grep                 " 待调试
+map <C-F> :Ag                 " 待调试
 
 nmap m gd                       " 高亮光标所在的单词
 map ci \ci                     " 注释光标所在的行
-"nmap fw :w<CR>                  " 保存当前缓冲区文件
+nmap fw :w<CR>                  " 保存当前缓冲区文件
 nmap fq <Esc><C-z><CR>          " 暂时退出VIM
 nmap q <Esc>:q<CR>              " 关闭光标所在的缓冲区
 
