@@ -153,29 +153,31 @@ nmap <C-L> <C-W>l               " 窗口间光标跳转---向右
 vmap <C-c> "+y                  " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
 map <C-F> :Ag 
 
-nmap m gd                       " 高亮光标所在的单词
-map ci \ci                      " 注释光标所在的行
-nmap fw :w<CR>                  " 保存当前缓冲区文件
-nmap fq <Esc><C-z><CR>          " 暂时退出VIM
-nmap q <Esc>:q<CR>              " 关闭光标所在的缓冲区
-
-map <F2> :bp<CR>                " 跳到上一个缓冲区
-map <F3> :bn<CR>                " 跳到下一个缓冲区
-map <F7> :ClangFormat<CR>       " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
-map <F9> :BufExplorer<CR>       " 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
-map <F10> :NERDTreeToggle<CR>   " 开闭目录树窗口"
-map <F12> :TlistToggle<CR>      " 开闭函数结构窗口
+" 高亮光标所在的单词
+nmap m gd
+" 注释光标所在的行
+map ci \ci
+" 保存当前缓冲区文件
+nmap fw :w<CR>
+" 暂时退出VIM
+nmap fq <Esc><C-z><CR>
+" 关闭光标所在的缓冲区
+nmap q <Esc>:q<CR>
+" 跳到上一个缓冲区
+map <F2> :bp<CR>
+" 跳到下一个缓冲区
+map <F3> :bn<CR>
+" 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
+map <F7> :ClangFormat<CR>
+" 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
+map <F9> :BufExplorer<CR>
+" 开闭目录树窗口
+map <F10> :NERDTreeToggle<CR>
+" 开闭函数结构窗口
+map <F12> :TlistToggle<CR>
 
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-
-" 记住上次编辑的文件，退出时，光标所在位置。需要当前用户对文件'.viminfo'用可写权限
-if has("autocmd")
-      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-
+nnoremap <leader>jh :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 
