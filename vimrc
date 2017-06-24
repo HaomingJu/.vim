@@ -61,7 +61,8 @@ set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
 highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置行高亮的颜色
 highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置列高亮的颜色
-highlight VertSplit ctermbg=0 ctermfg=0
+
+"highlight VertSplit ctermbg=0 ctermfg=0
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
@@ -85,6 +86,7 @@ Plug 'https://github.com/HaomingJu/conque-term.git'                 "Conque-term
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
+Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
 call plug#end()
 
 
@@ -144,15 +146,27 @@ let g:clang_format#style_options = {
 "BufExplorer 插件配置
 let g:bufExplorerDefaultHelp=0
 
+"GitGutter插件配置
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_async = 1
+
 
 " 快捷键位绑定
+" 窗口间光标跳转---向左
 nmap <C-H> <C-W>h
+" 窗口间光标跳转---向下
 nmap <C-J> <C-W>j
+" 窗口间光标跳转---向上
 nmap <C-K> <C-W>k
+" 窗口间光标跳转---向右
 nmap <C-L> <C-W>l
+" 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
 vmap <C-c> "+y
+" 全局搜索
 map <C-F> :Ag 
 
+
+" 高亮光标所在的单词
 nmap m gd
 map ci \c:qai
 nmap fq <Esc><C-z><CR>
@@ -182,5 +196,5 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/06/15                      "
+" Last modify   :       2017/06/24                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
