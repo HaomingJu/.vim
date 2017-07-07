@@ -146,24 +146,19 @@ let g:bufExplorerDefaultHelp=0
 
 
 " 快捷键位绑定
-nmap <C-H> <C-W>h               " 窗口间光标跳转---向左
-nmap <C-J> <C-W>j               " 窗口间光标跳转---向下
-nmap <C-K> <C-W>k               " 窗口间光标跳转---向上
-nmap <C-L> <C-W>l               " 窗口间光标跳转---向右
-vmap <C-c> "+y                  " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+vmap <C-c> "+y
 map <C-F> :Ag 
 
-" 高亮光标所在的单词
 nmap m gd
-" 注释光标所在的行
-map ci \ci
-" 保存当前缓冲区文件
-nmap fw :w<CR>
-" 暂时退出VIM
+map ci \c:qai
 nmap fq <Esc><C-z><CR>
 " 关闭光标所在的缓冲区
 nmap q <Esc>:q<CR>
-" 跳到上一个缓冲区
+
 map <F2> :bp<CR>
 " 跳到下一个缓冲区
 map <F3> :bn<CR>
@@ -177,7 +172,8 @@ map <F10> :NERDTreeToggle<CR>
 map <F12> :TlistToggle<CR>
 
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
-nnoremap <leader>jh :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 
 
