@@ -10,11 +10,13 @@
 " sudo apt-get install cmake
 " sudo apt-get install python-dev
 " sudo apt-get install clang
-"
+ 
+
 " 关于YouCompleteMe的编译注意事项
 " cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
 " ./install.sh --clang-completer
-" [Finally] : you maybe need to fix value : g:ycm_global_ycm_extra_conf
+" 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径，这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
+" 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
 
 " 关于Clang-Format插件的注意事项
 " clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
@@ -24,9 +26,10 @@
 
 
 "启动语法检测
-if has("syntax")
-  syntax on
-endif
+syntax enable
+syntax on
+colorscheme Tomorrow
+
 
 " 其他设置
 set showcmd                         " 显示输入的命令
@@ -42,6 +45,7 @@ set autoread                        " 当文件被改动时自动载入
 set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
 set wildmode=list:longest           " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
+set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
@@ -56,11 +60,20 @@ set smartcase                       " 开启智能大小写敏感
 set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
 
+
+set tags=./tags,tags,/usr/include/c++/4.9/tags
+set scrollbind                      "用于vimdiff
+
+
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
-set cursorcolumn                    " 高亮光标所在列
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置行高亮的颜色
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE " 设置列高亮的颜色
+"set cursorcolumn                    " 高亮光标所在列
+"highlight CursorLine   cterm=NONE ctermbg=LightCyan ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
+"highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
+
+"ctermbg表示前景色,guibg表示gvim的前景色
+"ctermfg表示背景色,guifg表示gvim的背景色
+
 
 "highlight VertSplit ctermbg=0 ctermfg=0
 
@@ -85,8 +98,9 @@ Plug 'https://github.com/HaomingJu/bufexplorer.git'                 "BufExplorer
 Plug 'https://github.com/HaomingJu/conque-term.git'                 "Conque-term插件:   用于在VIM中开辟内置的命令行窗口
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
-Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
 Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
+Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
+"Plug 'https://github.com/HaomingJu/vim-signify.git'
 call plug#end()
 
 
@@ -105,6 +119,7 @@ let Tlist_Show_One_File=1       " 只显示当前缓冲区的函数结构
 let Tlist_Auto_Highlight_Tag=1  " 自动高亮当前所在函数
 let Tlist_Auto_Update=1         " 只显示当前缓冲区的内容
 let Tlist_Compact_Format=1
+let Tlist_Process_File_Always=1 " 实时更替tags
 
 "YouCompleteMe 插件配置
 let g:ycm_server_python_interpreter='/usr/bin/python'
@@ -147,9 +162,23 @@ let g:clang_format#style_options = {
 let g:bufExplorerDefaultHelp=0
 
 "GitGutter插件配置
+let g:gitgutter_enabled = 0
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_async = 1
-
+let g:gitgutter_sign_added = 'ad'
+let g:gitgutter_sign_modified = 'mo'
+let g:gitgutter_sign_removed = 'rm'
+let g:gitgutter_sign_removed_first_line = 'r^'
+let g:gitgutter_sign_modified_removed = 'mr'
+let g:gitgutter_override_sign_column_highlight = 1
+highlight GitGutterAdd term=underline ctermfg=Green
+highlight GitGutterChange term=underline ctermfg=Blue
+highlight GitGutterDelete term=underline ctermfg=Yellow
+highlight GitGutterChangeDelete term=underline ctermfg=Yellow
+highlight GitGutterAddLine term=bold
+highlight GitGutterChangeLine term=bold
+highlight GitGutterDeleteLine term=bold
+highlight GitGutterChangeDeleteLine term=bold
 
 " 快捷键位绑定
 " 窗口间光标跳转---向左
@@ -165,7 +194,6 @@ vmap <C-c> "+y
 " 全局搜索
 map <C-F> :Ag 
 
-
 " 高亮光标所在的单词
 nmap m gd
 map ci \c:qai
@@ -176,6 +204,8 @@ nmap q <Esc>:q<CR>
 map <F2> :bp<CR>
 " 跳到下一个缓冲区
 map <F3> :bn<CR>
+" 开关Git diff
+map <F4> :GitGutterToggle<CR>
 " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
 map <F7> :ClangFormat<CR>
 " 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
@@ -184,10 +214,19 @@ map <F9> :BufExplorer<CR>
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
 map <F12> :TlistToggle<CR>
-
+" 英语查询单词
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" for error highlight，防止错误整行标红导致看不清
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
 
 
 
@@ -196,5 +235,6 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/06/24                      "
+" Last modify   :       2017/7/15                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
