@@ -72,7 +72,7 @@ set incsearch                       " 开启递增搜索模式,随着键入待�
 
 
 set tags=./tags,tags,/usr/include/c++/4.9/tags
-set scrollbind                      "用于vimdiff
+"set scrollbind                      "用于vimdiff,目前我自己默认关闭
 
 
 " 高亮光标所在行和列
