@@ -1,7 +1,7 @@
 " 2017年夏 南京
 
 " 在使用该配置之前可能需要执行以下命令来配置相关依赖环境
-" sudo apt-get install clang-format-3.8
+ "sudo apt-get install clang-format-3.8
 " sudo apt-get install vim-nox
 " sudo apt-get install vim-gui-common
 " sudo apt-get install silversearcher-ag
@@ -28,8 +28,17 @@
 "启动语法检测
 syntax enable
 syntax on
-colorscheme Tomorrow
 
+" 使用molakai配色方案
+colorscheme molokai
+let g:molokai_original=1
+let g:rehash256=1
+
+
+" 使用molakai配色方案
+colorscheme molokai
+let g:molokai_original=1
+let g:rehash256=1
 
 " 其他设置
 set showcmd                         " 显示输入的命令
@@ -46,6 +55,7 @@ set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一
 set wildmode=list:longest           " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
+"set scrollbind
 
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
@@ -196,12 +206,9 @@ map <C-F> :Ag
 
 " 高亮光标所在的单词
 nmap m gd
-map ci \c:qai
+map ci \ci
 nmap fq <Esc><C-z><CR>
-" 关闭光标所在的缓冲区
-nmap q <Esc>:q<CR>
 
-map <F2> :bp<CR>
 " 跳到下一个缓冲区
 map <F3> :bn<CR>
 " 开关Git diff
@@ -235,6 +242,6 @@ highlight SpellLocal term=underline cterm=underline
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/7/15                      "
+" Last modify   :       2017/07/22                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
