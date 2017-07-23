@@ -34,12 +34,6 @@ colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
 
-
-" 使用molakai配色方案
-colorscheme molokai
-let g:molokai_original=1
-let g:rehash256=1
-
 " 其他设置
 set showcmd                         " 显示输入的命令
 set showmatch                       " 设置匹配模式，显示匹配的括号
@@ -77,8 +71,8 @@ set tags=./tags,tags,/usr/include/c++/4.9/tags
 
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
-"set cursorcolumn                    " 高亮光标所在列
-"highlight CursorLine   cterm=NONE ctermbg=LightCyan ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
+set cursorcolumn                    " 高亮光标所在列
+"highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
 "highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
 
 "ctermbg表示前景色,guibg表示gvim的前景色
@@ -109,7 +103,9 @@ Plug 'https://github.com/HaomingJu/conque-term.git'                 "Conque-term
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
-Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
+Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
+Plug 'https://github.com/HaomingJu/vim-Mark.git'
+"Plug 'https://github.com/HaomingJu/color_coded.git'                 "color_coded插件：  用于色彩化代码，增强可视化
 "Plug 'https://github.com/HaomingJu/vim-signify.git'
 call plug#end()
 
@@ -136,6 +132,10 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
+
+"echofunc 插件配置
+"set statusline+=%{EchoFuncGetStatusLine()}
+"let g:EchoFuncShowOnStatus=1
 
 "Pydiction 插件配置
 let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
@@ -205,7 +205,7 @@ vmap <C-c> "+y
 map <C-F> :Ag 
 
 " 高亮光标所在的单词
-nmap m gd
+nmap m \m
 map ci \ci
 nmap fq <Esc><C-z><CR>
 
