@@ -51,7 +51,8 @@ set wildmode=list:longest           " 在命令行中，按下Tab键，显示当
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 "set scrollbind
-
+"set foldmethod=indent
+"
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
 set expandtab                       " 用空格替代制表符
@@ -105,7 +106,12 @@ Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插
 Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 "Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
+Plug 'https://github.com/HaomingJu/SimpylFold.git'
 call plug#end()
+
+let g:SimpylFold_docstring_preview = 0
+"au BufWInLeave * silent mkview
+"au BufRead * silent loadview
 
 
 "NERDTree 插件配置
@@ -214,6 +220,7 @@ map <C-F> :Ag
 nmap m gd
 map ci <Leader>ci
 map <Leader>w :w<CR>
+map <Leader>z za
 nmap fq <Esc><C-z><CR>
 
 " 跳到下一个缓冲区
