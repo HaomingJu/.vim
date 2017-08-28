@@ -24,6 +24,7 @@
 
 
 
+set encoding=utf-8
 "启动语法检测
 syntax enable
 syntax on
@@ -103,6 +104,7 @@ Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine�
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
 Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
 Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
+Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异
 call plug#end()
 
 
