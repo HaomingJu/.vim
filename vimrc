@@ -99,12 +99,12 @@ Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generat
 Plug 'https://github.com/HaomingJu/bufexplorer.git'                 "BufExplorer插件：  用于显示缓冲区
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
-Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
 Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
 Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
-Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异
+Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
+"Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
 call plug#end()
 
 
@@ -248,6 +248,6 @@ highlight SpellLocal term=underline cterm=underline
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/07/22                      "
+" Last modify   :       2017/08/29                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
