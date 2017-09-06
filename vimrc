@@ -65,8 +65,7 @@ set ignorecase                      " 忽略大小写
 set smartcase                       " 开启智能大小写敏感
 set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
-
-
+:set conceallevel=0
 set tags=./tags,tags,/usr/include/c++/4.9/tags
 "set scrollbind                      "用于vimdiff,目前我自己默认关闭
 
@@ -105,8 +104,9 @@ Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:
 Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
 Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-"Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
+Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/HaomingJu/SimpylFold.git'
+Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
 call plug#end()
 
 let g:SimpylFold_docstring_preview = 0
@@ -194,6 +194,8 @@ highlight GitGutterChangeLine term=bold
 highlight GitGutterDeleteLine term=bold
 highlight GitGutterChangeDeleteLine term=bold
 
+"vim-json插件配置
+let g:vim_json_syntax_conceal = 0
 
 "markdown 插件配置
 let g:instant_markdown_slow = 1             "减缓markdown的刷新频率
@@ -248,7 +250,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
