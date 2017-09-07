@@ -221,6 +221,7 @@ nmap <C-L> <C-W>l
 vmap <C-c> "+y
 " 全局搜索
 map <C-F> :Ag 
+map <Leader>h q:
 
 " 高亮光标所在的单词
 nmap m gd
@@ -236,7 +237,7 @@ map <F4> :GitGutterToggle<CR>
 " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
 map <F7> :ClangFormat<CR>
 " 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
-map <F9> :BufExplorer<CR>
+
 " 开闭目录树窗口
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
