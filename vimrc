@@ -91,22 +91,22 @@ Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插�
 Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
+"Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
-Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
+"Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
-Plug 'https://github.com/HaomingJu/bufexplorer.git'                 "BufExplorer插件：  用于显示缓冲区
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
 Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
-Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
+"Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
-Plug 'https://github.com/HaomingJu/SimpylFold.git'
+"Plug 'https://github.com/HaomingJu/SimpylFold.git'
 Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
+Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 call plug#end()
 
 let g:SimpylFold_docstring_preview = 0
@@ -143,6 +143,10 @@ let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的ta
 
 "Pydiction 插件配置
 let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
+
+"CtrlSpace 插件配置
+set nocompatible
+set hidden
 
 "Clang-Format 插件配置
 " 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
