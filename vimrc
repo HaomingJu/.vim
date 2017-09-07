@@ -115,7 +115,7 @@ let g:SimpylFold_docstring_preview = 0
 
 
 "NERDTree 插件配置
-autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧
+"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
@@ -222,7 +222,7 @@ map <C-F> :Ag
 nmap m gd
 map ci <Leader>ci
 map <Leader>w :w<CR>
-map <Leader>z za
+map <Leader>a :vsplit<CR>
 nmap fq <Esc><C-z><CR>
 
 " 跳到下一个缓冲区

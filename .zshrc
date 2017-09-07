@@ -1,3 +1,12 @@
+#
+# CopyRight 2017 EveryOne
+#
+# 说明:
+# sudo apt-get install autojump
+# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+#
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
