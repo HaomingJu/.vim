@@ -10,7 +10,7 @@
 " sudo apt-get install cmake
 " sudo apt-get install python-dev
 " sudo apt-get install clang
- 
+
 
 " 关于YouCompleteMe的编译注意事项
 " cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
@@ -50,8 +50,6 @@ set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一
 set wildmode=list:longest           " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
-"set scrollbind
-"set foldmethod=indent
 "
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
@@ -66,8 +64,6 @@ set smartcase                       " 开启智能大小写敏感
 set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
 :set conceallevel=0
-set tags=./tags,tags,/usr/include/c++/4.9/tags
-"set scrollbind                      "用于vimdiff,目前我自己默认关闭
 
 
 " 高亮光标所在行和列
@@ -75,7 +71,6 @@ set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
 "highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
 "highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
-
 "ctermbg表示前景色,guibg表示gvim的前景色
 "ctermfg表示背景色,guifg表示gvim的背景色
 
@@ -91,31 +86,34 @@ Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插�
 Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-"Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
-"Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
-"Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
 Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
-"Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
-"Plug 'https://github.com/HaomingJu/SimpylFold.git'
 Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
+Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
+Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
+"Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
+"Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
+"Plug 'https://github.com/HaomingJu/SimpylFold.git'
+"Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 call plug#end()
 
+
+" SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
 "au BufWInLeave * silent mkview
 "au BufRead * silent loadview
 
-
 "NERDTree 插件配置
-"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧
+"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
@@ -136,6 +134,8 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
 "echofunc 插件配置
 "set statusline+=%{EchoFuncGetStatusLine()}
@@ -205,11 +205,21 @@ let g:vim_json_syntax_conceal = 0
 let g:instant_markdown_slow = 1             "减缓markdown的刷新频率
 let g:instant_markdown_autostart = 1        "打开*.md文档自动显示预览
 
-" 快捷键位绑定
-" 窗口间光标跳转---向左
+" UltiSnips 插件配置
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+ let g:UltiSnipsExpandTrigger="<Tab>"
+ let g:UltiSnipsJumpForwardTrigger="<F3>"
+ let g:UltiSnipsJumpBackwardTrigger="<F2>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/snippets'
+
+
 
 " 修改了leader键盘
 let mapleader="\<Space>"
+" 快捷键位绑定
 nmap <C-H> <C-W>h
 " 窗口间光标跳转---向下
 nmap <C-J> <C-W>j
@@ -219,30 +229,31 @@ nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
 vmap <C-c> "+y
+
 " 全局搜索
 map <C-F> :Ag 
-map <Leader>h q:
-
+" 搜索增强
+nmap <Leader>f :Ag <C-R><C-W><CR>
 " 高亮光标所在的单词
 nmap m gd
-map ci <Leader>ci
-map <Leader>w :w<CR>
-map <Leader>a :vsplit<CR>
+" 退回到终端界面
 nmap fq <Esc><C-z><CR>
+" 快捷注释
+nmap ci <Leader>ci
 
-" 跳到下一个缓冲区
-map <F3> :bn<CR>
 " 开关Git diff
 map <F4> :GitGutterToggle<CR>
 " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
 map <F7> :ClangFormat<CR>
-" 以列表的形式列出所有缓冲区文件,可以很方便的跳到任何一个打开过的文件
-
 " 开闭目录树窗口
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
 map <F12> :TlistToggle<CR>
+
 " 英语查询单词
+map <Leader>w :w<CR>
+map <Leader>a :vsplit<CR>
+map <Leader>h q:
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
