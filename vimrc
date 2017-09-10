@@ -99,6 +99,7 @@ Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插
 Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
 Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
+Plug 'https://github.com/easymotion/vim-easymotion.git'
 "Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
 "Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
 "Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
