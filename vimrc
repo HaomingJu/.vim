@@ -25,15 +25,21 @@
 
 
 set encoding=utf-8
+set t_Co=256
 "启动语法检测
 syntax enable
 syntax on
-
 
 " 使用molakai配色方案
 colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
+
+"colorscheme solarized
+"let g:solarized_termtrans=1
+"set background=dark
+
+
 
 " 其他设置
 set showcmd                         " 显示输入的命令
@@ -63,8 +69,8 @@ set ignorecase                      " 忽略大小写
 set smartcase                       " 开启智能大小写敏感
 set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
-:set conceallevel=0
-
+set conceallevel=0
+set laststatus=2
 
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
@@ -73,6 +79,10 @@ set cursorcolumn                    " 高亮光标所在列
 "highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
 "ctermbg表示前景色,guibg表示gvim的前景色
 "ctermfg表示背景色,guifg表示gvim的背景色
+" 代码折叠
+" 快捷键　zc 折叠
+" 快捷键　zo 打开折叠
+"set foldmethod=syntax
 
 
 " 插件安装管理器要安装的插件列表
@@ -82,7 +92,7 @@ Plug 'https://github.com/HaomingJu/vim-airline.git'                 "Airline插�
 Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
 Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件：        用于跳转
-Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插件：      用于显示函数列表
+Plug 'https://github.com/HaomingJu/tagbar.git'                      "tagbar插件         用于显示函数列表
 Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
@@ -97,14 +107,17 @@ Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插
 Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
-Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
-Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
 Plug 'https://github.com/easymotion/vim-easymotion.git'
+"Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
+"Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
 "Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
-"Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
+Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
 "Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 "Plug 'https://github.com/HaomingJu/SimpylFold.git'
 "Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
+"Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+Plug 'https://github.com/edkolev/tmuxline.vim.git'
+Plug 'https://github.com/dyng/ctrlsf.vim.git'                        "ctrlsf插件:        更好用的代码查找工具
 call plug#end()
 
 
@@ -120,22 +133,14 @@ let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
 "let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
 
-"TlistToggle 插件配置
-"autocmd vimenter * TlistToggle " vim启动时，自动打开函数结构图(弃用，现通过F12键唤醒)
-let Tlist_Use_Right_Window=1    " 在右侧显示
-let Tlist_WinWidth=60           " 界面宽度为60
-let Tlist_Show_One_File=1       " 只显示当前缓冲区的函数结构
-let Tlist_Auto_Highlight_Tag=1  " 自动高亮当前所在函数
-let Tlist_Auto_Update=1         " 只显示当前缓冲区的内容
-let Tlist_Compact_Format=1
-let Tlist_Process_File_Always=1 " 实时更替tags
 
 "YouCompleteMe 插件配置
+"let g:ycm_auto_trigger=0
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
 "echofunc 插件配置
@@ -188,7 +193,7 @@ let g:gitgutter_sign_added = 'ad'
 let g:gitgutter_sign_modified = 'mo'
 let g:gitgutter_sign_removed = 'rm'
 let g:gitgutter_sign_removed_first_line = 'r^'
-let g:gitgutter_sign_modified_removed = 'mr'
+let g:gitgutter_sign_modified_removed = 'rm'
 let g:gitgutter_override_sign_column_highlight = 1
 highlight GitGutterAdd term=underline ctermfg=Green
 highlight GitGutterChange term=underline ctermfg=Blue
@@ -234,13 +239,13 @@ vmap <C-c> "+y
 " 全局搜索
 map <C-F> :Ag 
 " 搜索增强
-nmap <Leader>f :Ag <C-R><C-W><CR>
+nmap <Leader>f :CtrlSF <C-R><C-W><CR>
 " 高亮光标所在的单词
 nmap m gd
 " 退回到终端界面
 nmap fq <Esc><C-z><CR>
 " 快捷注释
-nmap ci <Leader>ci
+map ci <Leader>ci
 
 " 开关Git diff
 map <F4> :GitGutterToggle<CR>
@@ -249,12 +254,13 @@ map <F7> :ClangFormat<CR>
 " 开闭目录树窗口
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
-map <F12> :TlistToggle<CR>
+map <F12> :TagbarToggle<CR>
 
 " 英语查询单词
 map <Leader>w :w<CR>
 map <Leader>a :vsplit<CR>
 map <Leader>h q:
+nmap <Leader>q :q<CR>
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -267,8 +273,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
