@@ -1,45 +1,15 @@
 " 2017年夏 南京
-
-"在使用该配置之前可能需要执行以下命令来配置相关依赖环境
- "sudo apt-get install clang-format-3.8
-" sudo apt-get install vim-nox
-" sudo apt-get install vim-gui-common
- "sudo apt-get install silversearcher-ag
- "sudo pip install ici
-" sudo apt-get install ctags
-" sudo apt-get install cmake
-" sudo apt-get install python-dev
-" sudo apt-get install clang
-
-
-" 关于YouCompleteMe的编译注意事项
-" cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
-" ./install.sh --clang-completer
-" 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径，这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
-" 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
-
-" 关于Clang-Format插件的注意事项
-" clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
-" 可以删除/usr/bin/clang-format，然后做软连接"ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8"
-
-
-
+" 简易vim配置文件
+" 请在.bashrc文件中添加一行 export TERM=xterm-256color
 set encoding=utf-8
 set t_Co=256
-"启动语法检测
-syntax enable
-syntax on
-
-" 使用molakai配色方案
 colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
 
-"colorscheme solarized
-"let g:solarized_termtrans=1
-"set background=dark
-
-
+"启动语法检测
+syntax enable
+syntax on
 
 " 其他设置
 set showcmd                         " 显示输入的命令
@@ -75,152 +45,48 @@ set laststatus=2
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
-"highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
-"highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
 "ctermbg表示前景色,guibg表示gvim的前景色
 "ctermfg表示背景色,guifg表示gvim的背景色
 " 代码折叠
 " 快捷键　zc 折叠
 " 快捷键　zo 打开折叠
-"set foldmethod=syntax
 
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
 Plug 'https://github.com/HaomingJu/nerdtree.git'                    "NERDTree插件:      显示目录树形结构
 Plug 'https://github.com/HaomingJu/vim-airline.git'                 "Airline插件:       优化下方状态栏
-Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
 Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件：        用于跳转
-Plug 'https://github.com/HaomingJu/tagbar.git'                      "tagbar插件         用于显示函数列表
-Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
+Plug 'https://github.com/HaomingJu/taglist.vim.git'                 "TagList插件：      用于显示函数列表
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
-Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
 Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
-Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
-Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
-Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
-Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
-Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/easymotion/vim-easymotion.git'
-"Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
-"Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
-"Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
-"Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
-"Plug 'https://github.com/HaomingJu/SimpylFold.git'
-"Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
-"Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-Plug 'https://github.com/edkolev/tmuxline.vim.git'
-Plug 'https://github.com/dyng/ctrlsf.vim.git'                        "ctrlsf插件:        更好用的代码查找工具
 call plug#end()
 
-
-" SimpylFold 插件配置
-let g:SimpylFold_docstring_preview = 0
-"au BufWInLeave * silent mkview
-"au BufRead * silent loadview
 
 "NERDTree 插件配置
 "autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
-"let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
 
-
-"YouCompleteMe 插件配置
-"let g:ycm_auto_trigger=0
-let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
-"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-
-"echofunc 插件配置
-"set statusline+=%{EchoFuncGetStatusLine()}
-"let g:EchoFuncShowOnStatus=1
-
-"Pydiction 插件配置
-let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
+"TlistToggle 插件配置
+autocmd vimenter * TlistToggle " vim启动时，自动打开函数结构图(弃用，现通过F12键唤醒)
+let Tlist_Use_Right_Window=1    " 在右侧显示
+let Tlist_WinWidth=60           " 界面宽度为60
+let Tlist_Show_One_File=1       " 只显示当前缓冲区的函数结构
+let Tlist_Auto_Highlight_Tag=1  " 自动高亮当前所在函数
+let Tlist_Auto_Update=1         " 只显示当前缓冲区的内容
+let Tlist_Compact_Format=1
+let Tlist_Process_File_Always=1 " 实时更替tags
 
 "CtrlSpace 插件配置
 set nocompatible
 set hidden
-
-"Clang-Format 插件配置
-" 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
-let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "Google",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "AlignAfterOpenBracket" : "Align",
-            \ "SpaceBeforeAssignmentOperators" : "true",
-            \ "AlignOperands" : "false",
-            \ "AlignTrailingComments" : "true",
-            \ "AllowAllParametersOfDeclarationOnNextLine" : "false",
-            \ "AllowShortCaseLabelsOnASingleLine" : "false",
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "false",
-            \ "BinPackArguments" : "false",
-            \ "BinPackParameters" : "false",
-            \ "BreakBeforeBinaryOperators" : "None",
-            \ "BreakConstructorInitializersBeforeComma" : "true",
-            \ "MaxEmptyLinesToKeep" : 2,
-            \ "PointerAlignment" : "Left",
-            \ "ReflowComments" : "false",
-            \ "SpaceAfterCStyleCast" : "true",
-            \ "ColumnLimit" : 120,
-            \ "IndentWrappedFunctionNames" : "true",
-            \ "AccessModifierOffset" : -2,
-            \ "SpaceBeforeParens" : "Never"}
-
-"BufExplorer 插件配置
-let g:bufExplorerDefaultHelp=0
-
-"GitGutter插件配置
-let g:gitgutter_enabled = 0
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_async = 1
-let g:gitgutter_sign_added = 'ad'
-let g:gitgutter_sign_modified = 'mo'
-let g:gitgutter_sign_removed = 'rm'
-let g:gitgutter_sign_removed_first_line = 'r^'
-let g:gitgutter_sign_modified_removed = 'rm'
-let g:gitgutter_override_sign_column_highlight = 1
-highlight GitGutterAdd term=underline ctermfg=Green
-highlight GitGutterChange term=underline ctermfg=Blue
-highlight GitGutterDelete term=underline ctermfg=Yellow
-highlight GitGutterChangeDelete term=underline ctermfg=Yellow
-highlight GitGutterAddLine term=bold
-highlight GitGutterChangeLine term=bold
-highlight GitGutterDeleteLine term=bold
-highlight GitGutterChangeDeleteLine term=bold
-
-"vim-json插件配置
-let g:vim_json_syntax_conceal = 0
-
-"markdown 插件配置
-let g:instant_markdown_slow = 1             "减缓markdown的刷新频率
-let g:instant_markdown_autostart = 1        "打开*.md文档自动显示预览
-
-" UltiSnips 插件配置
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
- let g:UltiSnipsExpandTrigger="<Tab>"
- let g:UltiSnipsJumpForwardTrigger="<F3>"
- let g:UltiSnipsJumpBackwardTrigger="<F2>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/snippets'
-
 
 
 " 修改了leader键盘
@@ -239,7 +105,7 @@ vmap <C-c> "+y
 " 全局搜索
 map <C-F> :Ag 
 " 搜索增强
-nmap <Leader>f :CtrlSF <C-R><C-W><CR>
+nmap <Leader>f :Ag <C-R><C-W><CR>
 " 高亮光标所在的单词
 nmap m gd
 " 退回到终端界面
@@ -247,36 +113,21 @@ nmap fq <Esc><C-z><CR>
 " 快捷注释
 map ci <Leader>ci
 
-" 开关Git diff
-map <F4> :GitGutterToggle<CR>
-" 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
-map <F7> :ClangFormat<CR>
-" 开闭目录树窗口
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
-map <F12> :TagbarToggle<CR>
+map <F12> :TlistToggle<CR>
 
 " 英语查询单词
 map <Leader>w :w<CR>
 map <Leader>a :vsplit<CR>
 map <Leader>h q:
 nmap <Leader>q :q<CR>
-nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" for error highlight，防止错误整行标红导致看不清
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/08/29                      "
+" Last modify   :       2017/10/13                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
