@@ -4,7 +4,8 @@
 # 说明:
 # sudo apt-get install autojump
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-#
+# 安装oh-my-zsh
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
 # Path to your oh-my-zsh installation.
@@ -67,3 +68,5 @@ alias ll='ls -al'
 alias g='git status'
 alias gb='git branch -avv'
 alias t='tig'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
