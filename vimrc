@@ -93,7 +93,6 @@ Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursor
 Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
 Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件：        用于跳转
 Plug 'https://github.com/HaomingJu/tagbar.git'                      "tagbar插件         用于显示函数列表
-Plug 'https://github.com/HaomingJu/YouCompleteMe.git'               "YCM插件：          用于自动补全
 Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
 Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
@@ -108,16 +107,17 @@ Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter�
 Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/easymotion/vim-easymotion.git'
-"Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
+Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
+Plug 'https://github.com/dyng/ctrlsf.vim.git'                        "ctrlsf插件:        更好用的代码查找工具
+Plug 'https://github.com/Valloric/YouCompleteMe.git'               "YCM插件：          用于自动补全
 "Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
 "Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
 "Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 "Plug 'https://github.com/HaomingJu/SimpylFold.git'
 "Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 "Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-Plug 'https://github.com/edkolev/tmuxline.vim.git'
-Plug 'https://github.com/dyng/ctrlsf.vim.git'                        "ctrlsf插件:        更好用的代码查找工具
+"Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
+"Plug 'https://github.com/edkolev/tmuxline.vim.git'
 call plug#end()
 
 
@@ -221,8 +221,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/snippets'
 
-
-
 " 修改了leader键盘
 let mapleader="\<Space>"
 " 快捷键位绑定
@@ -273,6 +271,11 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+
+" 恢复上次文件打开位置
+set viminfo='10,\"100,:20,%,n~/.viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif"'")"'")")'"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
