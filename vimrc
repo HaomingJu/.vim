@@ -30,7 +30,7 @@ set t_Co=256
 syntax enable
 syntax on
 
-" 使用molakai配色方案
+"使用molakai配色方案
 colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
@@ -39,12 +39,10 @@ let g:rehash256=1
 "let g:solarized_termtrans=1
 "set background=dark
 
-
-
 " 其他设置
 set showcmd                         " 显示输入的命令
 set showmatch                       " 设置匹配模式，显示匹配的括号
-set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
+set mouse=v                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
 set magic                           " 设置魔术
 set number                          " 显示行号
 set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
@@ -72,6 +70,8 @@ set incsearch                       " 开启递增搜索模式,随着键入待�
 set conceallevel=0
 set laststatus=2
 
+hi Normal  ctermbg=none
+
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
@@ -88,6 +88,7 @@ set cursorcolumn                    " 高亮光标所在列
 " 插件安装管理器要安装的插件列表
 call plug#begin()
 Plug 'https://github.com/HaomingJu/nerdtree.git'                    "NERDTree插件:      显示目录树形结构
+Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
 Plug 'https://github.com/HaomingJu/vim-airline.git'                 "Airline插件:       优化下方状态栏
 Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
@@ -121,6 +122,7 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'               "YCM插件：
 call plug#end()
 
 
+
 " SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
 "au BufWInLeave * silent mkview
@@ -132,8 +134,6 @@ let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
 "let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
-
-
 "YouCompleteMe 插件配置
 "let g:ycm_auto_trigger=0
 let g:ycm_server_python_interpreter='/usr/bin/python'
@@ -174,12 +174,13 @@ let g:clang_format#style_options = {
             \ "BreakBeforeBinaryOperators" : "None",
             \ "BreakConstructorInitializersBeforeComma" : "true",
             \ "MaxEmptyLinesToKeep" : 2,
-            \ "PointerAlignment" : "Left",
             \ "ReflowComments" : "false",
             \ "SpaceAfterCStyleCast" : "true",
             \ "ColumnLimit" : 120,
             \ "IndentWrappedFunctionNames" : "true",
             \ "AccessModifierOffset" : -2,
+            \ "AllowShortFunctionsOnASingleLine" : "Empty",
+            \ "PointerAlignment" : "Left",
             \ "SpaceBeforeParens" : "Never"}
 
 "BufExplorer 插件配置
@@ -276,6 +277,13 @@ highlight SpellLocal term=underline cterm=underline
 " 恢复上次文件打开位置
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif"'")"'")")'"
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
