@@ -98,7 +98,9 @@ Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件
 Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
 Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
 Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
-Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
+"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
+"Plug 'https://github.com/vim-scripts/AutoClose.git'
+Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
 Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
@@ -234,6 +236,7 @@ nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
 vmap <C-c> "+y
+inoremap <C-e> <esc>
 
 " 全局搜索
 map <C-F> :Ag 
@@ -257,7 +260,7 @@ map <F12> :TagbarToggle<CR>
 
 " 英语查询单词
 map <Leader>w :w<CR>
-map <Leader>a :vsplit<CR>
+map <Leader>s :vsplit<CR>
 map <Leader>h q:
 nmap <Leader>q :q<CR>
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
