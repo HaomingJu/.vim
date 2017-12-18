@@ -249,10 +249,13 @@ nmap fq <Esc><C-z><CR>
 " 快捷注释
 map ci <Leader>ci
 
+" 开闭git blame窗口, 甩锅利器
+map <F3> :Gblame<CR>
 " 开关Git diff
 map <F4> :GitGutterToggle<CR>
 " 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
 map <F7> :ClangFormat<CR>
+
 " 开闭目录树窗口
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
