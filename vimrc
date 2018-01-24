@@ -62,6 +62,9 @@ set list                            " 将空格,制表等空白字符都用特�
 set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                    " 自动缩进使用4个空格"
 
+" 在上下移动光标时，光标上方或者下方至少会保留显示的行数
+set scrolloff=10
+
 " 设置当前缓冲区的搜索选项
 set ignorecase                      " 忽略大小写
 set smartcase                       " 开启智能大小写敏感
@@ -69,8 +72,10 @@ set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
 set conceallevel=0
 set laststatus=2
-
 hi Normal  ctermbg=none
+
+"修改vimrc文件之后，自动加载
+autocmd! bufwritepost .vimrc source %
 
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
@@ -268,6 +273,11 @@ map <Leader>h q:
 nmap <Leader>q :q<CR>
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
