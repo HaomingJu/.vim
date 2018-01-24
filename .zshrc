@@ -15,8 +15,8 @@ export TERM=xterm-256color
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="af-magic"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,5 +71,6 @@ alias g='git status'
 alias gb='git branch -avv'
 alias t='tig'
 alias rm='trash-put'
+alias RM="rm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
