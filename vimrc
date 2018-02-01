@@ -51,7 +51,8 @@ set noswapfile                      " 禁止生成临时文件
 set foldenable                      " 开启折叠选项
 set autoread                        " 当文件被改动时自动载入
 set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
-set wildmode=list:longest           " 在命令行中，按下Tab键，显示当前所有可能的命令
+set wildmenu
+set wildmode=list:full           " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 "
