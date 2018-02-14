@@ -17,6 +17,10 @@
 " ./install.sh --clang-completer
 " 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径，这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
 " 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
+" 目前在.vim中加入了额外的配置文件.ycm_extra_conf.py,其中
+"'-isystem',
+"'/usr/include/c++/4.9',
+" 添加完毕后可以找到iostream等
 
 " 关于Clang-Format插件的注意事项
 " clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
@@ -93,37 +97,39 @@ set cursorcolumn                    " 高亮光标所在列
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
-Plug 'https://github.com/HaomingJu/nerdtree.git'                    "NERDTree插件:      显示目录树形结构
+Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
-Plug 'https://github.com/HaomingJu/vim-airline.git'                 "Airline插件:       优化下方状态栏
-Plug 'https://github.com/HaomingJu/vim-multiple-cursors.git'        "Mult-Cursors插件:  用于多光标输入操作
-Plug 'https://github.com/HaomingJu/nerdcommenter.git'               "NERDCommenter插件：用于注释
-Plug 'https://github.com/HaomingJu/CTags.git'                       "CTags插件：        用于跳转
-Plug 'https://github.com/HaomingJu/tagbar.git'                      "tagbar插件         用于显示函数列表
-Plug 'https://github.com/HaomingJu/ctrlp.vim.git'                   "CtrlP插件:         用于文件搜索，支持模糊查找
-Plug 'https://github.com/HaomingJu/ag.vim.git'                      "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-Plug 'https://github.com/HaomingJu/vim-clang-format.git'            "Clang-Format插件： 用于格式化代码风格
-Plug 'https://github.com/HaomingJu/YCM-Generator.git'               "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
-"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
-"Plug 'https://github.com/vim-scripts/AutoClose.git'
-Plug 'https://github.com/kana/vim-smartinput.git'
-Plug 'https://github.com/HaomingJu/pydiction.git'                   "pydiction插件：    用于自动补全python
-Plug 'https://github.com/HaomingJu/indentLine.git'                  "indentLine插件:    用于连接for的首和尾
-Plug 'https://github.com/HaomingJu/vim-Mark.git'                    "mark插件:          用于高亮某些关键字
-Plug 'https://github.com/HaomingJu/vim-instant-markdown.git'        "markdown插件:      用于实时显示markdown效果
-Plug 'https://github.com/HaomingJu/vim-fugitive.git'                "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-Plug 'https://github.com/HaomingJu/vim-gitgutter.git'               "gitgutter插件：    用于显示Git diff等
-Plug 'https://github.com/elzr/vim-json.git'                         "vim-json插件:      用于更好的显示json文件
-Plug 'https://github.com/HaomingJu/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
+Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'          "Mult-Cursors插件:  用于多光标输入操作
+Plug 'https://github.com/scrooloose/nerdcommenter.git'                  "NERDCommenter插件：用于注释
+Plug 'https://github.com/SublimeText/CTags.git'                         "CTags插件：        用于跳转
+Plug 'https://github.com/majutsushi/tagbar.git'                         "tagbar插件         用于显示函数列表
+Plug 'https://github.com/kien/ctrlp.vim.git'                            "CtrlP插件:         用于文件搜索，支持模糊查找
+Plug 'https://github.com/rking/ag.vim.git'                              "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
+Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
+Plug 'https://github.com/rdnetto/YCM-Generator.git'                     "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
+Plug 'https://github.com/elzr/vim-json.git'                             "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/easymotion/vim-easymotion.git'
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'     "Chinese-help插件： 用于替换掉原有的英文文档
-Plug 'https://github.com/dyng/ctrlsf.vim.git'                        "ctrlsf插件:        更好用的代码查找工具
-Plug 'https://github.com/Valloric/YouCompleteMe.git'               "YCM插件：          用于自动补全
-"Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件"
-"Plug 'https://github.com/HaomingJu/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+Plug 'https://github.com/dyng/ctrlsf.vim.git'                           "ctrlsf插件:        更好用的代码查找工具
+Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插件：          用于自动补全
+Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
+Plug 'https://github.com/kana/vim-smartinput.git'
+Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
+Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插件:          用于高亮某些关键字
+Plug 'https://github.com/suan/vim-instant-markdown.git'                 "markdown插件:      用于实时显示markdown效果
+Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
+Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
+Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
+Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
+Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
+Plug 'https://github.com/mhinz/vim-startify.git'
+
+"Plug 'https://github.com/mbbill/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/vim-scripts/AutoClose.git'
+"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
+"Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件
 "Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
 "Plug 'https://github.com/HaomingJu/SimpylFold.git'
-"Plug 'https://github.com/HaomingJu/vim-fswitch.git'                 "fswitch插件:       用来切换h文件和cpp文件
 "Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 "Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
 "Plug 'https://github.com/edkolev/tmuxline.vim.git'
@@ -150,6 +156,10 @@ let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询�
 let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
 "let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+
+
 
 "echofunc 插件配置
 "set statusline+=%{EchoFuncGetStatusLine()}
@@ -307,4 +317,3 @@ let g:cpp_no_function_highlight = 1
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
 " Last modify   :       2017/08/29                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
