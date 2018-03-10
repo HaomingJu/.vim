@@ -46,7 +46,7 @@ let g:rehash256=1
 " 其他设置
 set showcmd                         " 显示输入的命令
 set showmatch                       " 设置匹配模式，显示匹配的括号
-set mouse=v                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
+set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
 set magic                           " 设置魔术
 set number                          " 显示行号
 set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
@@ -122,22 +122,20 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutt
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
-Plug 'https://github.com/mhinz/vim-startify.git'
-Plug 'https://github.com/ryanoasis/vim-devicons.git'
-
-"Plug 'https://github.com/mbbill/echofunc.git'                    "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
+"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
+"Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
 "Plug 'https://github.com/vim-scripts/AutoClose.git'
-"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                  "Auto-Pairs插件：   用于自动生成匹配的括号
-"Plug 'https://github.com/honza/vim-snippets.git'                    "snippets插件：     配合UltiSnip插件
-"Plug 'https://github.com/HaomingJu/ale.git'                         "ale插件：          用于代码的静态检查
+"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                     "Auto-Pairs插件：   用于自动生成匹配的括号
+"Plug 'https://github.com/honza/vim-snippets.git'                       "snippets插件：     配合UltiSnip插件
+"Plug 'https://github.com/HaomingJu/ale.git'                            "ale插件：          用于代码的静态检查
 "Plug 'https://github.com/HaomingJu/SimpylFold.git'
 "Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-"Plug 'https://github.com/SirVer/ultisnips.git'                      "UltiSnip插件：     用于代码块管理
+"Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
 "Plug 'https://github.com/edkolev/tmuxline.vim.git'
 call plug#end()
 
 
-let g:airline_powerline_fonts = 1
 
 " SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
@@ -145,7 +143,7 @@ let g:SimpylFold_docstring_preview = 0
 "au BufRead * silent loadview
 
 "NERDTree 插件配置
-"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
+autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
@@ -283,9 +281,10 @@ map <F12> :TagbarToggle<CR>
 map <Leader>w :w<CR>
 map <Leader>s :vsplit<CR>
 map <Leader>h q:
-nmap <Leader>q :q<CR>
+nmap <Leader>q :qa<CR>
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Leader>nm :noh<CR>
 
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -313,6 +312,19 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
+
+"设置startify插件起始页面的相关颜色
+let g:startify_files_number           = 20
+let g:startify_custom_footer =
+       \ ['', "Please be happy.", '']
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
@@ -322,24 +334,4 @@ let g:cpp_no_function_highlight = 1
 
 
 
-"autocmd User Startified setlocal cursorline
 
-"let g:startify_enable_special         = 0
-let g:startify_files_number           = 20
-"let g:startify_relative_path          = 1
-"let g:startify_change_to_dir          = 1
-"let g:startify_update_oldfiles        = 1
-"let g:startify_session_autoload       = 1
-"let g:startify_session_persistence    = 1
-
-let g:startify_custom_footer =
-       \ ['', "Please be happy.", '']
-
-hi StartifyBracket ctermfg=240
-hi StartifyFile    ctermfg=147
-hi StartifyFooter  ctermfg=240
-hi StartifyHeader  ctermfg=114
-hi StartifyNumber  ctermfg=215
-hi StartifyPath    ctermfg=245
-hi StartifySlash   ctermfg=240
-hi StartifySpecial ctermfg=240
