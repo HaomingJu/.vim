@@ -122,7 +122,7 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutt
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
-"Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
+Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
 "Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
 "Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
 "Plug 'https://github.com/vim-scripts/AutoClose.git'
@@ -136,6 +136,13 @@ Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese
 call plug#end()
 
 
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+
 
 " SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
@@ -144,10 +151,15 @@ let g:SimpylFold_docstring_preview = 0
 
 "NERDTree 插件配置
 autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
+let NERDTreeWinPos='right'
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
 "let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
+"
+"tarbar插件配置
+let g:tagbar_left = 1           " 使tarbar栏目在左侧
+
 "YouCompleteMe 插件配置
 "let g:ycm_auto_trigger=0
 let g:ycm_server_python_interpreter='/usr/bin/python'
