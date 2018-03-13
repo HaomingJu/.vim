@@ -56,7 +56,7 @@ set foldenable                      " 开启折叠选项
 set autoread                        " 当文件被改动时自动载入
 set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
 set wildmenu
-set wildmode=list:full           " 在命令行中，按下Tab键，显示当前所有可能的命令
+set wildmode=list:full              " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 "
@@ -143,6 +143,13 @@ autocmd VimEnter *
             \ |   wincmd w
             \ | endif
 
+" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
+set relativenumber number
+au FocusLost * :set norelativenumber number
+au FocusGained * :set relativenumber
+" " 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber"
 
 " SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
@@ -150,7 +157,7 @@ let g:SimpylFold_docstring_preview = 0
 "au BufRead * silent loadview
 
 "NERDTree 插件配置
-autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
+"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
