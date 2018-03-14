@@ -134,13 +134,14 @@ end
 "
 " Support for 256-color terminal
 "
+" TODO
 if &t_Co > 255
    if s:molokai_original == 1
       hi Normal                   ctermbg=Blue
       hi CursorLine               ctermbg=234   cterm=none
       hi CursorLineNr ctermfg=239               cterm=none
    else
-      hi Normal       ctermfg=Blue ctermbg=233
+      hi Normal       ctermfg=LightGreen ctermbg=233
       hi CursorLine               ctermbg=234   cterm=none
       hi CursorLineNr ctermfg=239               cterm=none
    endif
@@ -148,7 +149,7 @@ if &t_Co > 255
    hi Character       ctermfg=144
    hi Number          ctermfg=135
    hi String          ctermfg=144
-   hi Conditional     ctermfg=161               cterm=bold
+   hi Conditional     ctermfg=117               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
    hi Cursor          ctermfg=16  ctermbg=253
    hi Debug           ctermfg=225               cterm=bold
@@ -167,7 +168,7 @@ if &t_Co > 255
    hi Float           ctermfg=135
    hi FoldColumn      ctermfg=67  ctermbg=16
    hi Folded          ctermfg=67  ctermbg=16
-   hi Function        ctermfg=118
+   hi Function        ctermfg=190
    hi Identifier      ctermfg=208               cterm=none
    hi Ignore          ctermfg=244 ctermbg=232
    hi IncSearch       ctermfg=193 ctermbg=16
