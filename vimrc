@@ -39,9 +39,6 @@ colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
 
-"colorscheme solarized
-"let g:solarized_termtrans=1
-"set background=dark
 
 " 其他设置
 set showcmd                         " 显示输入的命令
@@ -59,6 +56,8 @@ set wildmenu
 set wildmode=list:full              " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
+set fileformat=unix
+
 "
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
@@ -123,8 +122,8 @@ Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspa
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
-"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
 "Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
 "Plug 'https://github.com/vim-scripts/AutoClose.git'
 "Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                     "Auto-Pairs插件：   用于自动生成匹配的括号
 "Plug 'https://github.com/honza/vim-snippets.git'                       "snippets插件：     配合UltiSnip插件
@@ -133,6 +132,7 @@ Plug 'https://github.com/mhinz/vim-startify.git'                       "startify
 "Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 "Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
 "Plug 'https://github.com/edkolev/tmuxline.vim.git'
+Plug 'https://github.com/shiftc/tmuxline.vim.git'
 call plug#end()
 
 
@@ -162,6 +162,7 @@ let NERDTreeWinPos='right'
 let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2         " 可修改root路径
 let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
+let NERDTreeStatusline='NERDTree'    " 显示Bookmarks标签
 "let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
 "
 "tarbar插件配置
@@ -181,7 +182,9 @@ let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 
 "echofunc 插件配置
-"set statusline+=%{EchoFuncGetStatusLine()}
+
+"set statusline=%{EchoFuncGetStatusLine()}
+"let g:EchoFuncLangsUsed=["cpp"]
 "let g:EchoFuncShowOnStatus=1
 
 "Pydiction 插件配置
@@ -295,6 +298,7 @@ map <F7> :ClangFormat<CR>
 map <F10> :NERDTreeToggle<CR>
 " 开闭函数结构窗口
 map <F12> :TagbarToggle<CR>
+map <F9> :CCtoggle<CR>
 
 " 英语查询单词
 map <Leader>w :w<CR>
@@ -332,10 +336,24 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
+" 插件color_coded配置
+let g:color_coded_enabled=1
+let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
+
 "设置startify插件起始页面的相关颜色
 let g:startify_files_number           = 20
+let g:startify_list_order = [
+            \ ['   My most recently used files in the current directory:'],
+            \ 'dir',
+            \ ['   My most recently used files:'],
+            \ 'files',
+            \ ['   These are my commands:'],
+            \ 'commands']
+
 let g:startify_custom_footer =
-       \ ['', "Please be happy.", '']
+       \ ["", "   生命中曾经有过的所有灿烂,终究都要用寂寞来偿还.", "   All brilliant that has appeared in life will eventually be rapaid for lonely."]
+
+let g:startify_enable_unsafe=1
 hi StartifyBracket ctermfg=240
 hi StartifyFile    ctermfg=147
 hi StartifyFooter  ctermfg=240
@@ -344,13 +362,18 @@ hi StartifyNumber  ctermfg=215
 hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
+
+" 设置tagbar插件
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_sort = 0
+let g:tagbar_show_visibility = 1
+highlight  TagbarHighlight guifg=Blue ctermfg=Blue
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
 " Last modify   :       2017/08/29                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
