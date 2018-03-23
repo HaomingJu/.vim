@@ -369,7 +369,8 @@ let g:tagbar_sort = 0
 let g:tagbar_show_visibility = 1
 highlight  TagbarHighlight guifg=Blue ctermfg=Blue
 
-
+" 设置ctrl-space插件
+let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
