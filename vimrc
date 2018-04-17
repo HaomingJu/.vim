@@ -10,6 +10,7 @@
 " sudo apt-get install cmake
 " sudo apt-get install python-dev
 " sudo apt-get install clang
+" sudo pip3 install jedi
 
 
 " 关于YouCompleteMe的编译注意事项
@@ -63,6 +64,7 @@ set fileformat=unix
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
 set expandtab                       " 用空格替代制表符
 set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
+"set listchars=tab:>-,trail:-,eol:<  " 定义显示空白字符的特殊可见字符
 set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                    " 自动缩进使用4个空格"
 
@@ -77,6 +79,9 @@ set incsearch                       " 开启递增搜索模式,随着键入待�
 set conceallevel=0
 set laststatus=2
 hi Normal  ctermbg=none
+
+
+"set foldmethod=syntax
 
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
@@ -98,14 +103,12 @@ set cursorcolumn                    " 高亮光标所在列
 call plug#begin()
 Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'          "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/scrooloose/nerdcommenter.git'                  "NERDCommenter插件：用于注释
 Plug 'https://github.com/SublimeText/CTags.git'                         "CTags插件：        用于跳转
 Plug 'https://github.com/majutsushi/tagbar.git'                         "tagbar插件         用于显示函数列表
 Plug 'https://github.com/kien/ctrlp.vim.git'                            "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'https://github.com/rking/ag.vim.git'                              "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
 Plug 'https://github.com/rdnetto/YCM-Generator.git'                     "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
 Plug 'https://github.com/elzr/vim-json.git'                             "vim-json插件:      用于更好的显示json文件
 Plug 'https://github.com/easymotion/vim-easymotion.git'
@@ -122,6 +125,7 @@ Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspa
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
+Plug 'https://github.com/davidhalter/jedi-vim.git'
 "Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
 "Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
 "Plug 'https://github.com/vim-scripts/AutoClose.git'
@@ -132,24 +136,26 @@ Plug 'https://github.com/mhinz/vim-startify.git'                       "startify
 "Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 "Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
 "Plug 'https://github.com/edkolev/tmuxline.vim.git'
-Plug 'https://github.com/shiftc/tmuxline.vim.git'
+"Plug 'https://github.com/shiftc/tmuxline.vim.git'
+"Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
+"Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
 call plug#end()
 
 
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
-            \ |   NERDTree
+            "\ |   NERDTree
             \ |   wincmd w
             \ | endif
 
 " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-set relativenumber number
-au FocusLost * :set norelativenumber number
-au FocusGained * :set relativenumber
+"set relativenumber number
+"au FocusLost * :set norelativenumber number
+"au FocusGained * :set relativenumber
 " " 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber"
+"autocmd InsertEnter * :set norelativenumber number
+"autocmd InsertLeave * :set relativenumber"
 
 " SimpylFold 插件配置
 let g:SimpylFold_docstring_preview = 0
@@ -177,6 +183,7 @@ let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的ta
 "let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_show_diagnostics_ui=0
 
 
 
@@ -337,8 +344,8 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 " 插件color_coded配置
-let g:color_coded_enabled=1
-let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
+"let g:color_coded_enabled=1
+"let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
 
 "设置startify插件起始页面的相关颜色
 let g:startify_files_number           = 20

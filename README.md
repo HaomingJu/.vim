@@ -36,19 +36,20 @@ ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8（请依据你的clang-for
 快捷键：F7
 
 效果图: <p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/1_res.gif)
+![](img/code_format.gif)
 
 
 ## 2、Buffer缓冲区查看
 尽管airline插件自带缓冲区查看功能，但是作者感觉其实际效果并不好。如果存在较多的缓冲区，缓冲区Tab将会无休止的增加，妨碍查看和切换。<p>
 换用vim-bufferline插件即可通过快捷键将所有的以打开的缓冲区以列表的形式显示，并可直接切换。<p>
 
-插件：vim-airline
+插件：vim-ctrlspace
 
-快捷键：F9
+快捷键：&lt;C-space&gt;
+
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/2_res.gif)
+![](img/ctrlspace.gif)
 
 ## 3、配色方案molokai
 之前使用的是与YouCompleteMe插件配套的颜色方案：color_coded。但其编译困难，需要vim支持Lua等。<p>
@@ -58,8 +59,9 @@ ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8（请依据你的clang-for
 
 插件：molokai
 
-效果图：暂无,可参照其它动图<p>
+效果图：<p>
 
+![](img/start.gif)
 
 ## 4、文件模糊查找
 
@@ -70,7 +72,7 @@ ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8（请依据你的clang-for
 快捷键：&lt;C-p&gt;
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/4_res.gif)
+![](img/ctrlp.gif)
 
 ## 5、目录树和函数列表显示
 插件：NERDTree、TagList
@@ -78,7 +80,8 @@ ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8（请依据你的clang-for
 快捷键：&lt;F10&gt; 开关目录树,&lt;F11&gt; 开关函数列表
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/5_res.gif)
+![](img/nerdtree.gif)
+![](img/funcshow.gif)
 
 
 ## 6、函数自动补全
@@ -89,7 +92,7 @@ YouCompleteMe需要自行编译<p>
 快捷键： &lt;Tab&gt;
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/6_res.gif)
+![](img/youcompleteme.gif)
 
 
 ## 7、参数提示：
@@ -106,7 +109,7 @@ YouCompleteMe需要自行编译<p>
 快捷键： &lt;C-f&gt;
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/8_res.gif)
+![](img/find_ag.gif)
 
 
 ## 9、文件内搜索
@@ -115,7 +118,7 @@ YouCompleteMe需要自行编译<p>
 快捷键： /
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/9_res.gif)
+![](img/search.gif)
 
 ## 10、多光标操作
 可同时操纵n行，极大的提升键入速度
@@ -125,16 +128,16 @@ YouCompleteMe需要自行编译<p>
 快捷键： &lt;C-n&gt;
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/10_res.gif)
+![](img/multi_cursor.gif)
 
 
 ## 11、英语查询
 在解决依赖的那一部分，在.vim/install.sh文件中已经安装了ici（pip install ici）,所以可以直接在vim中通过快捷键\y直接查询光标所在单词的中文意义。<p>
 
-快捷键： \y
+快捷键： space y
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/11_res.gif)
+![](img/english.gif)
 
 
 ## 12、高亮
@@ -143,7 +146,7 @@ YouCompleteMe需要自行编译<p>
 快捷键： m
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/12_res.gif)
+![](img/mark.gif)
 
 ## 13、注释和解注释
 可以注释单行或多行。直接在normal的模式下，按下快捷键将会注释/解注释当前光标所在的行。如果在visual模式下，按下快捷键将会注释掉选中的行。<p>
@@ -153,16 +156,26 @@ YouCompleteMe需要自行编译<p>
 快捷键： ci
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/13_res.gif)
+![](img/comment.gif)
+
+## 14、短期移动
+可以在页面内进行短期移动, 非常方便.
+
+插件：vim-easymotion
+
+快捷键：Space Space f 或者 Space Space b
+
+效果图：<p>
+![](img/easy_motion.gif)
 
 
-## 14、插件拓展
+## 15、插件拓展
 多线程插件管理器，可多线程下载安装插件。将要下载的插件的Git Repository地址写入到vimrc文件中，执行`:PlugInstll`即可。<p>
 
 插件： vim-plug
 
 效果图：<p>
-![](https://github.com/HaomingJu/.vim/blob/develop/img/14_res.gif)
+![](img/plug.gif)
 
 
 
