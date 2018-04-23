@@ -1,34 +1,4 @@
-" 2017年夏 南京
-
-"在使用该配置之前可能需要执行以下命令来配置相关依赖环境
- "sudo apt-get install clang-format-3.8
-" sudo apt-get install vim-nox
-" sudo apt-get install vim-gui-common
- "sudo apt-get install silversearcher-ag
- "sudo pip install ici
-" sudo apt-get install ctags
-" sudo apt-get install cmake
-" sudo apt-get install python-dev
-" sudo apt-get install clang
-" sudo pip3 install jedi
-
-
-" 关于YouCompleteMe的编译注意事项
-" cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
-" ./install.sh --clang-completer
-" 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径，这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
-" 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
-" 目前在.vim中加入了额外的配置文件.ycm_extra_conf.py,其中
-"'-isystem',
-"'/usr/include/c++/4.9',
-" 添加完毕后可以找到iostream等
-
-" 关于Clang-Format插件的注意事项
-" clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
-" 可以删除/usr/bin/clang-format，然后做软连接"ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8"
-
-
-
+" 2018年夏 南京
 set encoding=utf-8
 set t_Co=256
 "启动语法检测
@@ -58,13 +28,13 @@ set wildmode=list:full              " 在命令行中，按下Tab键，显示当
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 set fileformat=unix
+set tags=./.tags;,.tags
+set noshowmode
 
-"
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
 set expandtab                       " 用空格替代制表符
 set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
-"set listchars=tab:>-,trail:-,eol:<  " 定义显示空白字符的特殊可见字符
 set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                    " 自动缩进使用4个空格"
 
@@ -80,24 +50,11 @@ set conceallevel=0
 set laststatus=2
 hi Normal  ctermbg=none
 
-
-"set foldmethod=syntax
-
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
 
-" 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
-"highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
-"highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
-"ctermbg表示前景色,guibg表示gvim的前景色
-"ctermfg表示背景色,guifg表示gvim的背景色
-" 代码折叠
-" 快捷键　zc 折叠
-" 快捷键　zo 打开折叠
-"set foldmethod=syntax
-
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
@@ -120,25 +77,16 @@ Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentL
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插件:          用于高亮某些关键字
 Plug 'https://github.com/suan/vim-instant-markdown.git'                 "markdown插件:      用于实时显示markdown效果
 Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
-Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
-Plug 'https://github.com/davidhalter/jedi-vim.git'
-"Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
-"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
-"Plug 'https://github.com/vim-scripts/AutoClose.git'
-"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                     "Auto-Pairs插件：   用于自动生成匹配的括号
-"Plug 'https://github.com/honza/vim-snippets.git'                       "snippets插件：     配合UltiSnip插件
-"Plug 'https://github.com/HaomingJu/ale.git'                            "ale插件：          用于代码的静态检查
-"Plug 'https://github.com/HaomingJu/SimpylFold.git'
-"Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-"Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
-"Plug 'https://github.com/edkolev/tmuxline.vim.git'
-"Plug 'https://github.com/shiftc/tmuxline.vim.git'
-"Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
-"Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
+Plug 'https://github.com/mhinz/vim-startify.git'                        "startify插件:      用于更改vim起始页面，比较装逼
+Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi-vim插件:      用于补全python
+Plug 'https://github.com/ludovicchabant/vim-gutentags.git'              "gutentags插件:     用于自动生成ctags文件
+Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表
+Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF插件:       用于模糊查找
+Plug 'https://github.com/mhinz/vim-signify.git'
+Plug 'https://github.com/tpope/vim-projectionist.git'
 call plug#end()
 
 
@@ -148,19 +96,6 @@ autocmd VimEnter *
             "\ |   NERDTree
             \ |   wincmd w
             \ | endif
-
-" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-"set relativenumber number
-"au FocusLost * :set norelativenumber number
-"au FocusGained * :set relativenumber
-" " 插入模式下用绝对行号, 普通模式下用相对
-"autocmd InsertEnter * :set norelativenumber number
-"autocmd InsertLeave * :set relativenumber"
-
-" SimpylFold 插件配置
-let g:SimpylFold_docstring_preview = 0
-"au BufWInLeave * silent mkview
-"au BufRead * silent loadview
 
 "NERDTree 插件配置
 "autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
@@ -183,19 +118,26 @@ let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的ta
 "let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_show_diagnostics_ui=0
+let g:ycm_show_diagnostics_ui=0                         "关闭语法检查
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+"白名单,只为特定类型文件加载YCM
+let g:ycm_filetype_whitelist = {
+            \ "c":1,
+            \ "cpp":1,
+            \ "py":1
+            \ }
 
-
-
-
-"echofunc 插件配置
-
-"set statusline=%{EchoFuncGetStatusLine()}
-"let g:EchoFuncLangsUsed=["cpp"]
-"let g:EchoFuncShowOnStatus=1
-
-"Pydiction 插件配置
-let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
 
 "CtrlSpace 插件配置
 set nocompatible
@@ -343,10 +285,6 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
-" 插件color_coded配置
-"let g:color_coded_enabled=1
-"let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
-
 "设置startify插件起始页面的相关颜色
 let g:startify_files_number           = 20
 let g:startify_list_order = [
@@ -379,9 +317,108 @@ highlight  TagbarHighlight guifg=Blue ctermfg=Blue
 " 设置ctrl-space插件
 let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
 
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
 " Blog Address  :       http://blog.csdn.net/i_am_tom   "
 " Last modify   :       2017/08/29                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" =====================================================================================================
+"在使用该配置之前可能需要执行以下命令来配置相关依赖环境
+ "sudo apt-get install clang-format-3.8
+" sudo apt-get install vim-nox
+" sudo apt-get install vim-gui-common
+ "sudo apt-get install silversearcher-ag
+ "sudo pip install ici
+" sudo apt-get install ctags
+" sudo apt-get install cmake
+" sudo apt-get install python-dev
+" sudo apt-get install clang
+" sudo pip3 install jedi
+" 关于YouCompleteMe的编译注意事项
+" cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
+" ./install.sh --clang-completer
+" 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径
+" 这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
+" 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
+" 目前在.vim中加入了额外的配置文件.ycm_extra_conf.py,其中
+"'-isystem',
+"'/usr/include/c++/4.9',
+" 添加完毕后可以找到iostream等
+
+" 关于Clang-Format插件的注意事项
+" clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
+" 可以删除/usr/bin/clang-format，然后做软连接"ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8"
+" =====================================================================================================
+
+
+
+
+"弃置配置
+"
+"echofunc 插件配置
+"set statusline=%{EchoFuncGetStatusLine()}
+"let g:EchoFuncLangsUsed=["cpp"]
+"let g:EchoFuncShowOnStatus=1
+
+" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
+"set relativenumber number
+"au FocusLost * :set norelativenumber number
+"au FocusGained * :set relativenumber
+" " 插入模式下用绝对行号, 普通模式下用相对
+"autocmd InsertEnter * :set norelativenumber number
+"autocmd InsertLeave * :set relativenumber"
+
+"highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
+"highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
+"ctermbg表示前景色,guibg表示gvim的前景色
+"ctermfg表示背景色,guifg表示gvim的背景色
+" 代码折叠
+" 快捷键　zc 折叠
+" 快捷键　zo 打开折叠
+"set foldmethod=syntax
+
+" SimpylFold 插件配置
+"let g:SimpylFold_docstring_preview = 0
+"au BufWInLeave * silent mkview
+"au BufRead * silent loadview
+
+
+"set listchars=tab:>-,trail:-,eol:<  " 定义显示空白字符的特殊可见字符
+"Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
+"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
+"Plug 'https://github.com/vim-scripts/AutoClose.git'
+"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                     "Auto-Pairs插件：   用于自动生成匹配的括号
+"Plug 'https://github.com/honza/vim-snippets.git'                       "snippets插件：     配合UltiSnip插件
+"Plug 'https://github.com/HaomingJu/ale.git'                            "ale插件：          用于代码的静态检查
+"Plug 'https://github.com/HaomingJu/SimpylFold.git'
+"Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+"Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
+"Plug 'https://github.com/edkolev/tmuxline.vim.git'
+"Plug 'https://github.com/shiftc/tmuxline.vim.git'
+"Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
+"Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
+"Pydiction 插件配置
+"let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
+
+" 插件color_coded配置
+"let g:color_coded_enabled=1
+"let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
+"Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
+
+
