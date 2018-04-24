@@ -136,3 +136,4 @@ hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
 
+Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件

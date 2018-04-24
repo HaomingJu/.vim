@@ -64,7 +64,6 @@ set cursorcolumn                    " 高亮光标所在列
 " 插件安装管理器要安装的插件列表
 call plug#begin()
 Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
-Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'              "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/scrooloose/nerdcommenter.git'                  "NERDCommenter插件：用于注释
 Plug 'https://github.com/SublimeText/CTags.git'                         "CTags插件：        用于跳转
@@ -83,9 +82,14 @@ Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插
 Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
-Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
-Plug 'https://github.com/davidhalter/jedi-vim.git'
+Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
+Plug 'https://github.com/tpope/vim-projectionist.git'                   "projectionist插件: 用于头文件与实现文件之间转跳
+Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表, 不支持YCM, 目前只支持写Python
+Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF插件:       用于模糊查找
+Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
+
+
 call plug#end()
 
 "NERDTree 插件配置
@@ -104,8 +108,6 @@ let g:ycm_collect_identifiers_from_tag_files = 1                        " 使用
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui=0
-"Pydiction 插件配置
-let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
 "CtrlSpace 插件配置
 set nocompatible
 set hidden
@@ -239,5 +241,55 @@ highlight  TagbarHighlight guifg=Blue ctermfg=Blue
 " 设置ctrl-space插件
 let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
 
+" 设置LeaderF插件
+noremap <M-p> :LeaderfFile<CR>
+noremap <M-f> :LeaderfFunction<CR>
+noremap <M-m> :LeaderfMru<CR>
+noremap <M-h> :LeaderfHistorySearch<CR>
+
+" 函数区
+" 使得vim支持Alt组合键
+function! Terminal_MetaMode(mode)
+    if has('nvim') || has('gui_running')
+        return
+    endif
+    function! s:metacode(mode, key)
+        if a:mode == 0
+            exec "set <M-".a:key.">=\e".a:key
+        else
+            exec "set <M-".a:key.">=\e]{0}".a:key."~"
+        endif
+    endfunc
+    for i in range(10)
+        call s:metacode(a:mode, nr2char(char2nr('0') + i))
+    endfor
+    for i in range(26)
+        call s:metacode(a:mode, nr2char(char2nr('a') + i))
+        call s:metacode(a:mode, nr2char(char2nr('A') + i))
+    endfor
+    if a:mode != 0
+        for c in [',', '.', '/', ';', '[', ']', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    else
+        for c in [',', '.', '/', ';', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    endif
+    set ttimeout
+    if $TMUX != ''
+        set ttimeoutlen=30
+    elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
+        set ttimeoutlen=80
+    endif
+endfunc
+
+call Terminal_MetaMode(0)
 
 
