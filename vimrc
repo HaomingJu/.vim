@@ -1,36 +1,12 @@
-" 2017年夏 南京
-
-"在使用该配置之前可能需要执行以下命令来配置相关依赖环境
- "sudo apt-get install clang-format-3.8
-" sudo apt-get install vim-nox
-" sudo apt-get install vim-gui-common
- "sudo apt-get install silversearcher-ag
- "sudo pip install ici
-" sudo apt-get install ctags
-" sudo apt-get install cmake
-" sudo apt-get install python-dev
-" sudo apt-get install clang
-" sudo pip3 install jedi
-
-
-" 关于YouCompleteMe的编译注意事项
-" cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/
-" ./install.sh --clang-completer
-" 同时在补全方面，如果要补全系统函数，建议在工程的CMakeLists.txt里面加入系统头文件所在路径，这样产生.ycm_extra_conf.py配置文件的时候即可自动将系统头文件路径加入进去，也可以补全系统函数.
-" 例如：在工程CMakeLists.txt中加入'include_directories(/usr/include/c++/4.9)'
-" 目前在.vim中加入了额外的配置文件.ycm_extra_conf.py,其中
-"'-isystem',
-"'/usr/include/c++/4.9',
-" 添加完毕后可以找到iostream等
-
-" 关于Clang-Format插件的注意事项
-" clang-format命令的版本为3.8以上,且插件只识别命令"clang-format",并不识别"clang-format-3.8"
-" 可以删除/usr/bin/clang-format，然后做软连接"ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8"
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Author        :       Haoming.Ju                      "
+" Email         :       juhaoming@126.com               "
+" Last modify   :       2018/04/24                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set encoding=utf-8
 set t_Co=256
+
 "启动语法检测
 syntax enable
 syntax on
@@ -59,12 +35,10 @@ set softtabstop=4                   " 使用退格键，删除空格时，可以
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 set fileformat=unix
 
-"
 " 设置Tab相关设置
 set tabstop=4                       " 设置制表符tab键的宽度为4空格
 set expandtab                       " 用空格替代制表符
 set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
-"set listchars=tab:>-,trail:-,eol:<  " 定义显示空白字符的特殊可见字符
 set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                    " 自动缩进使用4个空格"
 
@@ -80,30 +54,18 @@ set conceallevel=0
 set laststatus=2
 hi Normal  ctermbg=none
 
-
-"set foldmethod=syntax
-
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
 
 " 高亮光标所在行和列
 set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
-"highlight CursorLine   cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置行高亮的颜色
-"highlight CursorColumn cterm=NONE ctermbg=grey ctermfg=NONE guibg=NONE guifg=NONE " 设置列高亮的颜色
-"ctermbg表示前景色,guibg表示gvim的前景色
-"ctermfg表示背景色,guifg表示gvim的背景色
-" 代码折叠
-" 快捷键　zc 折叠
-" 快捷键　zo 打开折叠
-"set foldmethod=syntax
-
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
 Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'          "Mult-Cursors插件:  用于多光标输入操作
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'              "Mult-Cursors插件:  用于多光标输入操作
 Plug 'https://github.com/scrooloose/nerdcommenter.git'                  "NERDCommenter插件：用于注释
 Plug 'https://github.com/SublimeText/CTags.git'                         "CTags插件：        用于跳转
 Plug 'https://github.com/majutsushi/tagbar.git'                         "tagbar插件         用于显示函数列表
@@ -118,89 +80,35 @@ Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-F
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
 Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插件:          用于高亮某些关键字
-Plug 'https://github.com/suan/vim-instant-markdown.git'                 "markdown插件:      用于实时显示markdown效果
 Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
 Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
-Plug 'https://github.com/mhinz/vim-startify.git'                       "startify插件:      用于更改vim起始页面，比较装逼
 Plug 'https://github.com/davidhalter/jedi-vim.git'
-"Plug 'https://github.com/mbbill/echofunc.git'                          "EchoFunc插件：     用于显示当前函数特征
-"Plug 'https://github.com/ryanoasis/vim-devicons.git'                   "devicons插件:      可以在Terminal上显示图标，在putty上不支持显示
-"Plug 'https://github.com/vim-scripts/AutoClose.git'
-"Plug 'https://github.com/HaomingJu/Auto-Pairs.git'                     "Auto-Pairs插件：   用于自动生成匹配的括号
-"Plug 'https://github.com/honza/vim-snippets.git'                       "snippets插件：     配合UltiSnip插件
-"Plug 'https://github.com/HaomingJu/ale.git'                            "ale插件：          用于代码的静态检查
-"Plug 'https://github.com/HaomingJu/SimpylFold.git'
-"Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-"Plug 'https://github.com/SirVer/ultisnips.git'                         "UltiSnip插件：     用于代码块管理
-"Plug 'https://github.com/edkolev/tmuxline.vim.git'
-"Plug 'https://github.com/shiftc/tmuxline.vim.git'
-"Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
-"Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
 call plug#end()
 
-
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            "\ |   NERDTree
-            \ |   wincmd w
-            \ | endif
-
-" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-"set relativenumber number
-"au FocusLost * :set norelativenumber number
-"au FocusGained * :set relativenumber
-" " 插入模式下用绝对行号, 普通模式下用相对
-"autocmd InsertEnter * :set norelativenumber number
-"autocmd InsertLeave * :set relativenumber"
-
-" SimpylFold 插件配置
-let g:SimpylFold_docstring_preview = 0
-"au BufWInLeave * silent mkview
-"au BufRead * silent loadview
-
 "NERDTree 插件配置
-"autocmd vimenter * NERDTree     " vim启动时，自动打开树形目录结构,默认位置是左侧(弃用，现通过F10键唤醒)
 let NERDTreeWinPos='right'
-let NERDTreeWinSize=31          " 设置NERDTree界面宽度为31
-let NERDTreeChDirMode=2         " 可修改root路径
-let NERDTreeShowBookmarks=1     " 显示Bookmarks标签
-let NERDTreeStatusline='NERDTree'    " 显示Bookmarks标签
-"let NERDTreeMinimalUI=1        " 去掉NERDTree的帮助显示信息(实地感受，虽然美观了不少，但是少了上一级目录选项不方便)
-"
+let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
+let NERDTreeChDirMode=2                                                 " 可修改root路径
+let NERDTreeShowBookmarks=1                                             " 显示Bookmarks标签
+let NERDTreeStatusline='NERDTree'                                       " 显示Bookmarks标签
 "tarbar插件配置
-let g:tagbar_left = 1           " 使tarbar栏目在左侧
-
+let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
 "YouCompleteMe 插件配置
-"let g:ycm_auto_trigger=0
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_confirm_extra_conf=0                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_collect_identifiers_from_tag_files = 1        " 使用ctags生成的tags文件
-"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_confirm_extra_conf=0                                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_collect_identifiers_from_tag_files = 1                        " 使用ctags生成的tags文件
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui=0
-
-
-
-
-"echofunc 插件配置
-
-"set statusline=%{EchoFuncGetStatusLine()}
-"let g:EchoFuncLangsUsed=["cpp"]
-"let g:EchoFuncShowOnStatus=1
-
 "Pydiction 插件配置
 let g:pydiction_location = '/home/haoming/.vim/plugged/pydiction/complete-dict'
-
 "CtrlSpace 插件配置
 set nocompatible
 set hidden
-
 "Clang-Format 插件配置
 " 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
 let g:clang_format#style_options = {
@@ -230,9 +138,6 @@ let g:clang_format#style_options = {
             \ "PointerAlignment" : "Left",
             \ "SpaceBeforeParens" : "Never"}
 
-"BufExplorer 插件配置
-let g:bufExplorerDefaultHelp=0
-
 "GitGutter插件配置
 let g:gitgutter_enabled = 0
 let g:gitgutter_highlight_lines = 1
@@ -254,20 +159,6 @@ highlight GitGutterChangeDeleteLine term=bold
 
 "vim-json插件配置
 let g:vim_json_syntax_conceal = 0
-
-"markdown 插件配置
-let g:instant_markdown_slow = 1             "减缓markdown的刷新频率
-let g:instant_markdown_autostart = 1        "打开*.md文档自动显示预览
-
-" UltiSnips 插件配置
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
- let g:UltiSnipsExpandTrigger="<Tab>"
- let g:UltiSnipsJumpForwardTrigger="<F3>"
- let g:UltiSnipsJumpBackwardTrigger="<F2>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/snippets'
 
 " 修改了leader键盘
 let mapleader="\<Space>"
@@ -315,12 +206,10 @@ nmap <Leader>q :qa<CR>
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Leader>nm :noh<CR>
-
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
 " for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -330,8 +219,6 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
-
 " 恢复上次文件打开位置
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif"'")"'")")'"
@@ -343,33 +230,6 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
-" 插件color_coded配置
-"let g:color_coded_enabled=1
-"let g:color_coded_filetypes=['c','cc','cpp','h','hpp']
-
-"设置startify插件起始页面的相关颜色
-let g:startify_files_number           = 20
-let g:startify_list_order = [
-            \ ['   My most recently used files in the current directory:'],
-            \ 'dir',
-            \ ['   My most recently used files:'],
-            \ 'files',
-            \ ['   These are my commands:'],
-            \ 'commands']
-
-let g:startify_custom_footer =
-       \ ["", "   生命中曾经有过的所有灿烂,终究都要用寂寞来偿还.", "   All brilliant that has appeared in life will eventually be rapaid for lonely."]
-
-let g:startify_enable_unsafe=1
-hi StartifyBracket ctermfg=240
-hi StartifyFile    ctermfg=147
-hi StartifyFooter  ctermfg=240
-hi StartifyHeader  ctermfg=114
-hi StartifyNumber  ctermfg=215
-hi StartifyPath    ctermfg=245
-hi StartifySlash   ctermfg=240
-hi StartifySpecial ctermfg=240
-
 " 设置tagbar插件
 let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_sort = 0
@@ -379,9 +239,5 @@ highlight  TagbarHighlight guifg=Blue ctermfg=Blue
 " 设置ctrl-space插件
 let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Author        :       Haoming.Ju                      "
-" Email         :       juhaoming@126.com               "
-" Blog Address  :       http://blog.csdn.net/i_am_tom   "
-" Last modify   :       2017/08/29                      "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
