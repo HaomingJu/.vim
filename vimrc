@@ -32,7 +32,6 @@ set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一
 set wildmenu
 set wildmode=list:full              " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
-set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 set fileformat=unix
 
 " 设置Tab相关设置
@@ -247,6 +246,9 @@ noremap <M-f> :LeaderfFunction<CR>
 noremap <M-m> :LeaderfMru<CR>
 noremap <M-h> :LeaderfHistorySearch<CR>
 
+set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
+let g:echodoc_enable_at_startup = 1
+>
 " 函数区
 " 使得vim支持Alt组合键
 function! Terminal_MetaMode(mode)
@@ -286,7 +288,7 @@ function! Terminal_MetaMode(mode)
     if $TMUX != ''
         set ttimeoutlen=30
     elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-        set ttimeoutlen=80
+        set ttimeoutlen=30
     endif
 endfunc
 
