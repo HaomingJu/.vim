@@ -74,6 +74,12 @@ Plug 'https://github.com/elzr/vim-json.git'                             "vim-jso
 Plug 'https://github.com/easymotion/vim-easymotion.git'
 Plug 'https://github.com/dyng/ctrlsf.vim.git'                           "ctrlsf插件:        更好用的代码查找工具
 Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插件：          用于自动补全
+"Plug 'https://github.com/Shougo/deoplete.nvim.git'
+"Plug 'https://github.com/Rip-Rip/clang_complete.git'
+"Plug 'https://github.com/roxma/nvim-yarp'
+"Plug 'https://github.com/roxma/vim-hug-neovim-rpc'
+"Plug 'https://github.com/zchee/deoplete-clang.git'
+
 Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
@@ -248,7 +254,6 @@ noremap <M-h> :LeaderfHistorySearch<CR>
 
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
 let g:echodoc_enable_at_startup = 1
->
 " 函数区
 " 使得vim支持Alt组合键
 function! Terminal_MetaMode(mode)
