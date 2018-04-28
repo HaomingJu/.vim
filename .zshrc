@@ -1,23 +1,54 @@
 #
-# CopyRight 2017 EveryOne
+# CopyRight 2018 EveryOne
 #
-# 说明:
-# sudo apt-get install autojump
-# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+#
+# 使用antigen插件管理器
+#curl -L git.io/antigen > antigen.zsh
+
+
 # 安装oh-my-zsh
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
+# [可选] autojump插件安装
+# sudo apt-get install autojump
+# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+
 # Path to your oh-my-zsh installation.
+source ~/antigen/antigen.zsh
+# antigen插件列表
+antigen bundle git
+antigen bundle autojump
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle colored-man-pages
+antigen bundle web-search
+antigen bundle z
+
+antigen apply
+
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="af-magic"
-#ZSH_THEME="robbyrussell"
+HIST_STAMPS="mm/dd/yyyy"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+source $ZSH/oh-my-zsh.sh
+
+# 命令别名
+alias ll='ls -al'
+alias g='git status'
+alias gb='git branch -avv'
+alias t='tig'
+alias rm='trash-put'
+alias RM="rm"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+
+#################################################################################################
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -47,7 +78,6 @@ ZSH_THEME="af-magic"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -56,21 +86,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-autosuggestions)
-
+#plugins=(git autojump zsh-autosuggestions)
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
-
-
-alias ll='ls -al'
-alias g='git status'
-alias gb='git branch -avv'
-alias t='tig'
-alias rm='trash-put'
-alias RM="rm"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
