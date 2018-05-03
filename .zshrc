@@ -45,6 +45,8 @@ alias rm='trash-put'
 alias RM="rm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+bindkey '^f' vi-forward-word
+
 
 
 
