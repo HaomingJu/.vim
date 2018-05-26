@@ -32,11 +32,14 @@ export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
 ZSH_THEME="af-magic"
 HIST_STAMPS="mm/dd/yyyy"
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export ARCNIST_PATH=$HOME/software/arcnistDirs/arcanist
+export PATH=$HOME/bin:/usr/local/bin:$HOME/Desktop/ipc:$ARCNIST_PATH/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
 # 命令别名
+alias l='ls -l'
 alias ll='ls -al'
 alias g='git status'
 alias gb='git branch -avv'
