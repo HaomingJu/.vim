@@ -17,12 +17,14 @@ let g:molokai_original=1
 let g:rehash256=1
 
 
+
 " 其他设置
 set showcmd                         " 显示输入的命令
 set showmatch                       " 设置匹配模式，显示匹配的括号
 set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
 set magic                           " 设置魔术
-set number                          " 显示行号
+"set number                         " 显示行号
+set relativenumber                  " 显示相对行号
 set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
 set backspace=indent,eol,start      " 使退格键可以正常使用
 set noswapfile                      " 禁止生成临时文件
@@ -93,6 +95,7 @@ Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插
 Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表, 不支持YCM, 目前只支持写Python
 Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF插件:       用于模糊查找
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
+Plug 'https://github.com/ayu-theme/ayu-vim.git'
 
 
 call plug#end()
