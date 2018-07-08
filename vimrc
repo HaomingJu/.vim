@@ -23,7 +23,7 @@ set showcmd                         " 显示输入的命令
 set showmatch                       " 设置匹配模式，显示匹配的括号
 set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
 set magic                           " 设置魔术
-"set number                         " 显示行号
+set number                         " 显示行号
 set relativenumber                  " 显示相对行号
 set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
 set backspace=indent,eol,start      " 使退格键可以正常使用
@@ -62,6 +62,8 @@ autocmd! bufwritepost .vimrc source %
 set cursorline                      " 高亮光标所在行
 set cursorcolumn                    " 高亮光标所在列
 
+set wildignore+=*/android_build/*,*/linux_build/*,*/output_*/*,*/build*/*
+
 " 插件安装管理器要安装的插件列表
 call plug#begin()
 Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
@@ -81,7 +83,6 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插�
 "Plug 'https://github.com/roxma/nvim-yarp'
 "Plug 'https://github.com/roxma/vim-hug-neovim-rpc'
 "Plug 'https://github.com/zchee/deoplete-clang.git'
-
 Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
@@ -96,6 +97,7 @@ Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc
 Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF插件:       用于模糊查找
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
 Plug 'https://github.com/ayu-theme/ayu-vim.git'
+Plug 'https://github.com/luochen1990/rainbow.git'                       "彩虹括号
 
 
 call plug#end()
@@ -186,6 +188,9 @@ inoremap <C-e> <esc>
 
 " 全局搜索
 map <C-F> :Ag 
+
+nmap <C-M> :set fileformat=unix<CR>
+
 " 搜索增强
 nmap <Leader>f :CtrlSF <C-R><C-W><CR>
 " 高亮光标所在的单词
@@ -255,6 +260,9 @@ noremap <M-p> :LeaderfFile<CR>
 noremap <M-f> :LeaderfFunction<CR>
 noremap <M-m> :LeaderfMru<CR>
 noremap <M-h> :LeaderfHistorySearch<CR>
+" 设置RainBow插件
+let g:rainbow_active = 1
+
 let g:Lf_WindowHeight=0.3
 let g:Lf_StlColorscheme = 'powerline'
 
