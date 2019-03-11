@@ -16,7 +16,8 @@
 
 
 # Path to your oh-my-zsh installation.
-source ~/antigen/antigen.zsh
+source ~/.oh-my-zsh/Antigen/antigen.zsh
+
 # antigen插件列表
 antigen bundle git
 antigen bundle autojump
