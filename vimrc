@@ -4,17 +4,18 @@
 " Last modify   :       2018/04/24                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set encoding=utf-8
-set t_Co=256
-
 "启动语法检测
 syntax enable
 syntax on
 
 "使用molakai配色方案
-colorscheme molokai
+set t_Co=256
 let g:molokai_original=1
-let g:rehash256=1
+
+set background=dark
+color molokai
+
+
 
 
 
@@ -53,7 +54,8 @@ set hlsearch                        " 高亮搜索得到的结果
 set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
 set conceallevel=0
 set laststatus=2
-hi Normal  ctermbg=none
+"hi Normal  ctermbg=none
+highlight Normal ctermfg=15 ctermbg=233
 
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
@@ -90,7 +92,7 @@ Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插
 "Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 "Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
-"Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
+Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
 "Plug 'https://github.com/tpope/vim-projectionist.git'                   "projectionist插件: 用于头文件与实现文件之间转跳
 Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表, 不支持YCM, 目前只支持写Python
@@ -98,11 +100,15 @@ Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
 Plug 'https://github.com/ayu-theme/ayu-vim.git'
 Plug 'https://github.com/luochen1990/rainbow.git'                       "彩虹括号
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+
+Plug 'https://github.com/vim-airline/vim-airline.git'
 
 
 call plug#end()
 
 "NERDTree 插件配置
+autocmd vimenter * NERDTree
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2                                                 " 可修改root路径
@@ -135,7 +141,7 @@ let g:clang_format#style_options = {
             \ "AllowShortCaseLabelsOnASingleLine" : "false",
             \ "AllowShortIfStatementsOnASingleLine" : "false",
             \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "false",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "BinPackArguments" : "false",
             \ "BinPackParameters" : "false",
             \ "BreakBeforeBinaryOperators" : "None",
