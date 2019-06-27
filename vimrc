@@ -13,7 +13,10 @@ set t_Co=256
 let g:molokai_original=1
 
 set background=dark
-color molokai
+"color molokai
+colorscheme solarized
+
+
 
 
 
@@ -55,7 +58,7 @@ set incsearch                       " 开启递增搜索模式,随着键入待�
 set conceallevel=0
 set laststatus=2
 "hi Normal  ctermbg=none
-highlight Normal ctermfg=15 ctermbg=233
+"highlight Normal ctermfg=15 ctermbg=233
 
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
