@@ -13,7 +13,7 @@ set t_Co=256
 let g:molokai_original=1
 
 set background=dark
-"color molokai
+"colorscheme molokai
 colorscheme solarized
 
 
