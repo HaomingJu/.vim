@@ -91,11 +91,9 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插�
 Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
-Plug 'https://github.com/HaomingJu/vim-Mark.git'                        "mark插件:          用于高亮某些关键字
 "Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 "Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
-Plug 'https://github.com/HaomingJu/vim-ChineseHelpDocument.git'         "Chinese-help插件： 用于替换掉原有的英文文档
 Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
 "Plug 'https://github.com/tpope/vim-projectionist.git'                   "projectionist插件: 用于头文件与实现文件之间转跳
 Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表, 不支持YCM, 目前只支持写Python
