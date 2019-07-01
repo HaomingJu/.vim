@@ -20,12 +20,12 @@ source ~/.oh-my-zsh/Antigen/antigen.zsh
 
 # antigen插件列表
 antigen bundle git
-antigen bundle autojump
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle colored-man-pages
 antigen bundle web-search
 antigen bundle z
+antigen bundle extract
 
 antigen apply
 
