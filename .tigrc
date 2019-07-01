@@ -1,5 +1,5 @@
 
-set main-view	= line-number:yes,interval=5 id:no date:default author:full commit-title:yes,graph,refs,overflow=no
+set main-view	= line-number:yes,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
 
 bind generic	H	view-help
 bind generic	L	view-log
@@ -25,4 +25,4 @@ set main-view-id-display = yes
 set line-graphics = utf-8
 
 
-source ~/.tigrc.theme
+source ~/.vim/.tigrc.theme
