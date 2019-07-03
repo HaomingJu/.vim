@@ -16,7 +16,7 @@
 
 
 # Path to your oh-my-zsh installation.
-source ~/.oh-my-zsh/Antigen/antigen.zsh
+source ~/.vim/antigen/antigen.zsh
 
 # antigen插件列表
 antigen bundle git
@@ -96,3 +96,4 @@ bindkey '^f' vi-forward-word
 # User configuration
 
 
+#source /opt/ros/kinetic/setup.zsh
