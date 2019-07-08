@@ -25,6 +25,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle colored-man-pages
 antigen bundle web-search
 antigen bundle z
+antigen bundle cp
 antigen bundle extract
 
 antigen apply
@@ -35,13 +36,13 @@ ZSH_THEME="af-magic"
 HIST_STAMPS="mm/dd/yyyy"
 
 export ARCNIST_PATH=$HOME/software/arcnistDirs/arcanist
-export PATH=$HOME/bin:/usr/local/bin:$HOME/Desktop/ipc:$ARCNIST_PATH/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/Desktop/ipc:$ARCNIST_PATH/bin:/opt/ros/kinetic/lib/x86_64-linux-gnu:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
 # 命令别名
-alias l='ls -l'
-alias ll='ls -al'
+alias l='ls -alh'
+alias ll='ls -lh'
 alias g='git status'
 alias gb='git branch -avv'
 alias t='tig'
@@ -96,4 +97,4 @@ bindkey '^f' vi-forward-word
 # User configuration
 
 
-#source /opt/ros/kinetic/setup.zsh
+source /opt/ros/kinetic/setup.zsh
