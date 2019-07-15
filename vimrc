@@ -115,6 +115,8 @@ let NERDTreeWinSize=31                                                  " 设置
 let NERDTreeChDirMode=2                                                 " 可修改root路径
 let NERDTreeShowBookmarks=1                                             " 显示Bookmarks标签
 let NERDTreeStatusline='NERDTree'                                       " 显示Bookmarks标签
+let NERDTreeMinimalUI=1                                                 " 精简化窗口
+
 "tarbar插件配置
 let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
 "YouCompleteMe 插件配置
