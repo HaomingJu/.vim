@@ -10,11 +10,11 @@ syntax on
 
 "使用molakai配色方案
 set t_Co=256
-let g:molokai_original=1
 
 set background=dark
-"colorscheme molokai
-colorscheme solarized
+let g:molokai_original=1
+colorscheme molokai
+"color solarized
 
 
 
@@ -105,18 +105,20 @@ Plug 'https://github.com/altercation/vim-colors-solarized.git'
 
 Plug 'https://github.com/vim-airline/vim-airline.git'
 
+Plug 'https://github.com/dense-analysis/ale.git'
+
 
 call plug#end()
 
 "NERDTree 插件配置
 autocmd vimenter * NERDTree
+let NERDTreeIgnore=['build', 'output_x86_64']
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2                                                 " 可修改root路径
 let NERDTreeShowBookmarks=1                                             " 显示Bookmarks标签
 let NERDTreeStatusline='NERDTree'                                       " 显示Bookmarks标签
 let NERDTreeMinimalUI=1                                                 " 精简化窗口
-
 "tarbar插件配置
 let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
 "YouCompleteMe 插件配置
@@ -125,7 +127,7 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_confirm_extra_conf=0                                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_collect_identifiers_from_tag_files = 1                        " 使用ctags生成的tags文件
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='/home/haoming/.vim/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui=0
 "CtrlSpace 插件配置
 set nocompatible
@@ -235,6 +237,10 @@ cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+nmap <Leader>j :ALENext<CR>
+nmap <Leader>k :ALEPrevious<CR>
+
 " for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -254,6 +260,16 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
+
+" 设置Ale插件
+let g:ale_sign_error = 'E>'
+let g:ale_sign_warning = 'W>'
+let g:ale_linters = {
+            \'cpp': ['cppcheck','clang','gcc'],
+            \'c': ['cppcheck','clang', 'gcc'],
+            \'python': ['pylint'],
+            \'bash': ['shellcheck'],
+            \'go': ['golint'],}
 
 " 设置tagbar插件
 let g:tagbar_iconchars = ['▸', '▾']
