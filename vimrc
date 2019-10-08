@@ -91,8 +91,8 @@ Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插�
 Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
-"Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-"Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
+Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
+Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
 Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
 Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
 "Plug 'https://github.com/tpope/vim-projectionist.git'                   "projectionist插件: 用于头文件与实现文件之间转跳
@@ -102,17 +102,21 @@ Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未�
 Plug 'https://github.com/ayu-theme/ayu-vim.git'
 Plug 'https://github.com/luochen1990/rainbow.git'                       "彩虹括号
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
-
 Plug 'https://github.com/vim-airline/vim-airline.git'
-
 Plug 'https://github.com/dense-analysis/ale.git'
+Plug 'https://github.com/gabrielelana/vim-markdown.git'
+
+" 代码块补全
+Plug 'https://github.com/SirVer/ultisnips.git'
+Plug 'https://github.com/honza/vim-snippets.git'
+
 
 
 call plug#end()
 
 "NERDTree 插件配置
 autocmd vimenter * NERDTree
-let NERDTreeIgnore=['build', 'output_x86_64']
+let NERDTreeIgnore=['^build', '^output_x86_64$']
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2                                                 " 可修改root路径
@@ -123,12 +127,15 @@ let NERDTreeMinimalUI=1                                                 " 精简
 let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
 "YouCompleteMe 插件配置
 let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_confirm_extra_conf=0                                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_collect_identifiers_from_tag_files = 1                        " 使用ctags生成的tags文件
+let g:ycm_collect_identifiers_from_tag_files = 0                        " 使用ctags生成的tags文件
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui=0
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+"let g:ycm_autoclose_preview_window_after_completion=1
+
 "CtrlSpace 插件配置
 set nocompatible
 set hidden
@@ -180,6 +187,12 @@ highlight GitGutterChangeLine term=bold
 highlight GitGutterDeleteLine term=bold
 highlight GitGutterChangeDeleteLine term=bold
 
+" 代码块按键配置
+" 取消<C-e>原有功能, 将其置为expand展开功能
+map <C-e> <NOP>
+let g:UltiSnipsExpandTrigger="<C-e>"
+
+
 "vim-json插件配置
 let g:vim_json_syntax_conceal = 0
 
@@ -195,7 +208,6 @@ nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
 vmap <C-c> "+y
-inoremap <C-e> <esc>
 
 " 全局搜索
 map <C-F> :Ag 
@@ -236,7 +248,6 @@ map <Leader>nm :noh<CR>
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 
 nmap <Leader>j :ALENext<CR>
 nmap <Leader>k :ALEPrevious<CR>
