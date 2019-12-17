@@ -110,13 +110,16 @@ Plug 'https://github.com/gabrielelana/vim-markdown.git'
 Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'https://github.com/honza/vim-snippets.git'
 
+Plug 'https://github.com/terryma/vim-expand-region.git'
+Plug 'https://github.com/vim-scripts/groovy.vim.git'
+
 
 
 call plug#end()
 
 "NERDTree 插件配置
-autocmd vimenter * NERDTree
-let NERDTreeIgnore=['^build', '^output_x86_64$']
+"autocmd vimenter * NERDTree
+let NERDTreeIgnore=['^build', '^output_x86_64$', 'pyc$', '__init__.py']
 let NERDTreeWinPos='right'
 let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2                                                 " 可修改root路径
