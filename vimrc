@@ -112,6 +112,11 @@ Plug 'https://github.com/honza/vim-snippets.git'
 
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/vim-scripts/groovy.vim.git'
+Plug 'https://github.com/martinda/Jenkinsfile-vim-syntax.git'
+
+Plug 'https://github.com/ap/vim-css-color.git'
+Plug 'https://github.com/mattn/emmet-vim.git'
+Plug 'https://github.com/ternjs/tern_for_vim.git'
 
 
 
@@ -121,7 +126,7 @@ call plug#end()
 "autocmd vimenter * NERDTree
 let NERDTreeIgnore=['^build', '^output_x86_64$', 'pyc$', '__init__.py']
 let NERDTreeWinPos='right'
-let NERDTreeWinSize=31                                                  " 设置NERDTree界面宽度为31
+let NERDTreeWinSize=23                                                 " 设置NERDTree界面宽度为31
 let NERDTreeChDirMode=2                                                 " 可修改root路径
 let NERDTreeShowBookmarks=1                                             " 显示Bookmarks标签
 let NERDTreeStatusline='NERDTree'                                       " 显示Bookmarks标签
@@ -129,7 +134,7 @@ let NERDTreeMinimalUI=1                                                 " 精简
 "tarbar插件配置
 let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
 "YouCompleteMe 插件配置
-let g:ycm_server_python_interpreter='/usr/bin/python'
+"let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_confirm_extra_conf=0                                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_collect_identifiers_from_tag_files = 0                        " 使用ctags生成的tags文件
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
@@ -352,5 +357,3 @@ function! Terminal_MetaMode(mode)
 endfunc
 
 call Terminal_MetaMode(0)
-
-
