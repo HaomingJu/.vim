@@ -98,3 +98,8 @@ bindkey '^f' vi-forward-word
 
 
 source /opt/ros/kinetic/setup.zsh
+
+# 配置命令行 科学上网. ssr
+#export http_proxy="http://127.0.0.1:12333"
+#export https_proxy="http://127.0.0.1:12333"
+
