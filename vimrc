@@ -102,7 +102,7 @@ Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未�
 Plug 'https://github.com/ayu-theme/ayu-vim.git'
 Plug 'https://github.com/luochen1990/rainbow.git'                       "彩虹括号
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
+Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'https://github.com/dense-analysis/ale.git'
 Plug 'https://github.com/gabrielelana/vim-markdown.git'
 
