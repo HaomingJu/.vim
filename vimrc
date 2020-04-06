@@ -16,62 +16,53 @@ let g:molokai_original=1
 colorscheme molokai
 "color solarized
 
-
-
-
-
-
-
 " 其他设置
-set showcmd                         " 显示输入的命令
-set showmatch                       " 设置匹配模式，显示匹配的括号
-set mouse=a                         " 使鼠标可用，可以通过鼠标点击来定位光标或者打开文件但是此时鼠标右键菜单不可用
-set magic                           " 设置魔术
-set number                         " 显示行号
-set relativenumber                  " 显示相对行号
-set nocompatible                    " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
-set backspace=indent,eol,start      " 使退格键可以正常使用
-set noswapfile                      " 禁止生成临时文件
-set foldenable                      " 开启折叠选项
-set autoread                        " 当文件被改动时自动载入
-set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
+set showcmd                           " 显示输入的命令
+set showmatch                         " 设置匹配模式，显示匹配的括号
+set mouse=a                           " 使鼠标可用
+set magic                             " 设置魔术
+set number                            " 显示行号
+set relativenumber                    " 显示相对行号
+set nocompatible                      " 去掉讨厌的有关vi一致性模式，避免以前的版本的一些漏洞和局限
+set backspace=indent,eol,start        " 使退格键可以正常使用
+set noswapfile                        " 禁止生成临时文件
+set foldenable                        " 开启折叠选项
+set autoread                          " 当文件被改动时自动载入
+set completeopt=longest,menu          " 让Vim的补全才当行为与一般IDE一致
 set wildmenu
-set wildmode=list:full              " 在命令行中，按下Tab键，显示当前所有可能的命令
-set softtabstop=2                   " 使用退格键，删除空格时，可以一次删除四个空格
+set wildmode=list:full                " 在命令行中，按下Tab键，显示当前所有可能的命令
+set softtabstop=4                     " 使用退格键，删除空格时，可以一次删除四个空格
 set fileformat=unix
 
 " 设置Tab相关设置
-set tabstop=2                       " 设置制表符tab键的宽度为4空格
-set expandtab                       " 用空格替代制表符
-set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
-set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
-set shiftwidth=2                    " 自动缩进使用4个空格"
+set tabstop=4                         " 设置制表符tab键的宽度为4空格
+set expandtab                         " 用空格替代制表符
+set list                              " 将空格,制表等空白字符都用特殊可见字符显示出来"
+set listchars=tab:>-,trail:-          " 定义显示空白字符的特殊可见字符
+set shiftwidth=4                      " 自动缩进使用4个空格"
 
 " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
 set scrolloff=10
 
 " 设置当前缓冲区的搜索选项
-set ignorecase                      " 忽略大小写
-set smartcase                       " 开启智能大小写敏感
-set hlsearch                        " 高亮搜索得到的结果
-set incsearch                       " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
+set ignorecase                        " 忽略大小写
+set smartcase                         " 开启智能大小写敏感
+set hlsearch                          " 高亮搜索得到的结果
+set incsearch                         " 开启递增搜索模式,随着键入待搜索文本，不断的进行搜索
 set conceallevel=0
 set laststatus=2
-"hi Normal  ctermbg=none
-"highlight Normal ctermfg=15 ctermbg=233
+set nocompatible
+set hidden
 
 "修改vimrc文件之后，自动加载
 autocmd! bufwritepost .vimrc source %
 
 " 高亮光标所在行和列
-set cursorline                      " 高亮光标所在行
-set cursorcolumn                    " 高亮光标所在列
+set cursorline                        " 高亮光标所在行
+set cursorcolumn                      " 高亮光标所在列
 
-set wildignore+=*/android_build/*,*/linux_build/*,*/output_*/*,*/build*/*
-
-" 插件安装管理器要安装的插件列表
+" 插件安装管理器要安装的插件列表 Base URL: https://github.com
 call plug#begin()
-" Base URL: https://github.com
 Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构
 Plug 'terryma/vim-multiple-cursors'   "Mult-Cursors插件:  用于多光标输入操作
 Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
@@ -86,7 +77,9 @@ Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的�
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
-Plug 'luochen1990/rainbow'                       "彩虹括号
+Plug 'luochen1990/rainbow'            "彩虹括号
+Plug 'octol/vim-cpp-enhanced-highlight.git'
+Plug 'itchyny/lightline.vim'
 
 " Git相关插件
 Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
@@ -101,271 +94,18 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 
 " Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-"Plug 'https://github.com/kana/vim-smartinput.git'
-"Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
-"Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
-"Plug 'https://github.com/ayu-theme/ayu-vim.git'
-"Plug 'https://github.com/altercation/vim-colors-solarized.git'
-"Plug 'https://github.com/itchyny/lightline.vim.git'
-
-" 代码块补全
-"Plug 'https://github.com/SirVer/ultisnips.git'
-"Plug 'https://github.com/honza/vim-snippets.git'
-
-"Plug 'https://github.com/ap/vim-css-color.git'
-"Plug 'https://github.com/mattn/emmet-vim.git'
-"Plug 'https://github.com/ternjs/tern_for_vim.git'
+Plug 'honza/vim-snippets'
 call plug#end()
 
-autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-
-"NERDTree 插件配置
-"autocmd vimenter * NERDTree
-let NERDTreeIgnore=['^build', '^output_x86_64$', 'pyc$', '__init__.py']
-let NERDTreeWinPos='right'
-let NERDTreeWinSize=23                                                 " 设置NERDTree界面宽度为31
-let NERDTreeChDirMode=2                                                 " 可修改root路径
-let NERDTreeShowBookmarks=1                                             " 显示Bookmarks标签
-let NERDTreeStatusline='NERDTree'                                       " 显示Bookmarks标签
-let NERDTreeMinimalUI=1                                                 " 精简化窗口
-"tarbar插件配置
-let g:tagbar_left = 1                                                   " 使tarbar栏目在左侧
-"YouCompleteMe 插件配置
-"let g:ycm_server_python_interpreter='/usr/bin/python3'
-let g:ycm_confirm_extra_conf=0                                          " 打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_collect_identifiers_from_tag_files = 0                        " 使用ctags生成的tags文件
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_show_diagnostics_ui=0
-let g:ycm_add_preview_to_completeopt=1
-let g:ycm_autoclose_preview_window_after_insertion=1
-"let g:ycm_autoclose_preview_window_after_completion=1
-
-"CtrlSpace 插件配置
-set nocompatible
-set hidden
-"Clang-Format 插件配置
-" 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
-let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "Google",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "AlignAfterOpenBracket" : "Align",
-            \ "SpaceBeforeAssignmentOperators" : "true",
-            \ "AlignOperands" : "false",
-            \ "AlignTrailingComments" : "true",
-            \ "AllowAllParametersOfDeclarationOnNextLine" : "false",
-            \ "AllowShortCaseLabelsOnASingleLine" : "false",
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "BinPackArguments" : "false",
-            \ "BinPackParameters" : "false",
-            \ "BreakBeforeBinaryOperators" : "None",
-            \ "BreakConstructorInitializersBeforeComma" : "true",
-            \ "MaxEmptyLinesToKeep" : 2,
-            \ "ReflowComments" : "false",
-            \ "SpaceAfterCStyleCast" : "true",
-            \ "ColumnLimit" : 120,
-            \ "IndentWrappedFunctionNames" : "true",
-            \ "AccessModifierOffset" : -2,
-            \ "AllowShortFunctionsOnASingleLine" : "Empty",
-            \ "PointerAlignment" : "Left",
-            \ "SpaceBeforeParens" : "Never"}
-
-"GitGutter插件配置
-let g:gitgutter_enabled = 0
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_async = 1
-let g:gitgutter_sign_added = 'ad'
-let g:gitgutter_sign_modified = 'mo'
-let g:gitgutter_sign_removed = 'rm'
-let g:gitgutter_sign_removed_first_line = 'r^'
-let g:gitgutter_sign_modified_removed = 'rm'
-let g:gitgutter_override_sign_column_highlight = 1
-highlight GitGutterAdd term=underline ctermfg=Green
-highlight GitGutterChange term=underline ctermfg=Blue
-highlight GitGutterDelete term=underline ctermfg=Yellow
-highlight GitGutterChangeDelete term=underline ctermfg=Yellow
-highlight GitGutterAddLine term=bold
-highlight GitGutterChangeLine term=bold
-highlight GitGutterDeleteLine term=bold
-highlight GitGutterChangeDeleteLine term=bold
-
-" 代码块按键配置
-" 取消<C-e>原有功能, 将其置为expand展开功能
-map <C-e> <NOP>
-let g:UltiSnipsExpandTrigger="<C-e>"
-
-
-
-
-"vim-json插件配置
-let g:vim_json_syntax_conceal = 0
-
-" 修改了leader键盘
-let mapleader="\<Space>"
-" 快捷键位绑定
-nmap <C-H> <C-W>h
-" 窗口间光标跳转---向下
-nmap <C-J> <C-W>j
-" 窗口间光标跳转---向上
-nmap <C-K> <C-W>k
-" 窗口间光标跳转---向右
-nmap <C-L> <C-W>l
-" 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中
-vmap <C-c> "+y
-
-" 全局搜索
-map <C-F> :Ag 
-
-nmap <C-M> :set fileformat=unix<CR>
-
-" 搜索增强
-nmap <Leader>f :CtrlSF <C-R><C-W><CR>
-" 高亮光标所在的单词
-nmap m gd
-" 退回到终端界面
-nmap fq <Esc><C-z><CR>
-" 快捷注释
-map ci <Leader>ci
-
-" 开闭git blame窗口, 甩锅利器
-map <F3> :Gblame<CR>
-" 开关Git diff
-map <F4> :GitGutterToggle<CR>
-" 格式化代码风格为Allman。谷歌风格程序狗可以注释掉了:)
-map <F7> :ClangFormat<CR>
-
-" 开闭目录树窗口
-map <F10> :NERDTreeToggle<CR>
-" 开闭函数结构窗口
-map <F12> :TagbarToggle<CR>
-map <F9> :CCtoggle<CR>
-
-" 英语查询单词
-map <Leader>w :w<CR>
-map <Leader>s :vsplit<CR>
-map <Leader>h q:
-nmap <Leader>q :qa<CR>
-nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
-vmap <Leader>y "+y
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <Leader>nm :noh<CR>
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-
-nmap <Leader>j :ALENext<CR>
-nmap <Leader>k :ALEPrevious<CR>
-
-" for error highlight，防止错误整行标红导致看不清
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
-" 恢复上次文件打开位置
-set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif"'")"'")")'"
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
-
-" 设置Ale插件
-let g:ale_sign_error = 'E>'
-let g:ale_sign_warning = 'W>'
-let g:ale_linters = {
-            \'cpp': ['cppcheck','clang','gcc'],
-            \'c': ['cppcheck','clang', 'gcc'],
-            \'python': ['pylint'],
-            \'bash': ['shellcheck'],
-            \'go': ['golint'],}
-
-" 设置tagbar插件
-let g:tagbar_iconchars = ['▸', '▾']
-let g:tagbar_sort = 0
-let g:tagbar_show_visibility = 1
-highlight  TagbarHighlight guifg=Blue ctermfg=Blue
-
-" 设置ctrl-space插件
-let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
-
-" 设置LeaderF插件
-noremap <M-p> :LeaderfFile<CR>
-noremap <M-f> :LeaderfFunction<CR>
-noremap <M-m> :LeaderfMru<CR>
-noremap <M-h> :LeaderfHistorySearch<CR>
-" 设置RainBow插件
-let g:rainbow_active = 1
-
-let g:Lf_WindowHeight=0.3
-let g:Lf_StlColorscheme = 'powerline'
-
-set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
-let g:echodoc_enable_at_startup = 1
-
-" 函数区
-" 使得vim支持Alt组合键
-function! Terminal_MetaMode(mode)
-    if has('nvim') || has('gui_running')
-        return
-    endif
-    function! s:metacode(mode, key)
-        if a:mode == 0
-            exec "set <M-".a:key.">=\e".a:key
-        else
-            exec "set <M-".a:key.">=\e]{0}".a:key."~"
-        endif
-    endfunc
-    for i in range(10)
-        call s:metacode(a:mode, nr2char(char2nr('0') + i))
-    endfor
-    for i in range(26)
-        call s:metacode(a:mode, nr2char(char2nr('a') + i))
-        call s:metacode(a:mode, nr2char(char2nr('A') + i))
-    endfor
-    if a:mode != 0
-        for c in [',', '.', '/', ';', '[', ']', '{', '}']
-            call s:metacode(a:mode, c)
-        endfor
-        for c in ['?', ':', '-', '_']
-            call s:metacode(a:mode, c)
-        endfor
-    else
-        for c in [',', '.', '/', ';', '{', '}']
-            call s:metacode(a:mode, c)
-        endfor
-        for c in ['?', ':', '-', '_']
-            call s:metacode(a:mode, c)
-        endfor
-    endif
-    set ttimeout
-    if $TMUX != ''
-        set ttimeoutlen=30
-    elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-        set ttimeoutlen=30
-    endif
-endfunc
-
+:source ~/.vim/plugin/custom/keymap.vim
+:source ~/.vim/plugin/custom/NERDTreeConfig.vim
+:source ~/.vim/plugin/custom/YouCompletaMeConfig.vim
+:source ~/.vim/plugin/custom/ClangFormatConfig.vim
+:source ~/.vim/plugin/custom/LittlePluginConfig.vim
+:source ~/.vim/plugin/custom/GitGutterConfig.vim
+:source ~/.vim/plugin/custom/Functions.vim
+:source ~/.vim/plugin/custom/CocConfig.vim
+:source ~/.vim/plugin/custom/CppLightConfig.vim
+:source ~/.vim/plugin/custom/LeaderFConfig.vim
+:source ~/.vim/plugin/custom/CommonConfig.vim
 call Terminal_MetaMode(0)
-
-" Coc补全, Tab触发
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()

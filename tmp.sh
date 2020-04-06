@@ -55,6 +55,15 @@
 "Plug 'https://github.com/rkulla/pydiction.git'                          "pydiction插件：    用于自动补全python
 "Plug 'https://github.com/vim-airline/vim-airline.git'                   "Airline插件:       优化下方状态栏
 
+"Plug 'https://github.com/kana/vim-smartinput.git'
+"Plug 'https://github.com/davidhalter/jedi-vim.git'
+"Plug 'https://github.com/ayu-theme/ayu-vim.git'
+"Plug 'https://github.com/altercation/vim-colors-solarized.git'
+"Plug 'https://github.com/SirVer/ultisnips.git'
+"Plug 'https://github.com/ap/vim-css-color.git'
+"Plug 'https://github.com/mattn/emmet-vim.git'
+"Plug 'https://github.com/ternjs/tern_for_vim.git'
+
 
 " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
 "set relativenumber number
@@ -137,3 +146,6 @@ hi StartifySpecial ctermfg=240
 
 
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch插件:       用来切换h文件和cpp文件
+
+"hi Normal  ctermbg=none
+"highlight Normal ctermfg=15 ctermbg=233
