@@ -37,15 +37,15 @@ set autoread                        " 当文件被改动时自动载入
 set completeopt=longest,menu        " 让Vim的补全才当行为与一般IDE一致
 set wildmenu
 set wildmode=list:full              " 在命令行中，按下Tab键，显示当前所有可能的命令
-set softtabstop=4                   " 使用退格键，删除空格时，可以一次删除四个空格
+set softtabstop=2                   " 使用退格键，删除空格时，可以一次删除四个空格
 set fileformat=unix
 
 " 设置Tab相关设置
-set tabstop=4                       " 设置制表符tab键的宽度为4空格
+set tabstop=2                       " 设置制表符tab键的宽度为4空格
 set expandtab                       " 用空格替代制表符
 set list                            " 将空格,制表等空白字符都用特殊可见字符显示出来"
 set listchars=tab:>-,trail:-        " 定义显示空白字符的特殊可见字符
-set shiftwidth=4                    " 自动缩进使用4个空格"
+set shiftwidth=2                    " 自动缩进使用4个空格"
 
 " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
 set scrolloff=10
@@ -71,56 +71,55 @@ set wildignore+=*/android_build/*,*/linux_build/*,*/output_*/*,*/build*/*
 
 " 插件安装管理器要安装的插件列表
 call plug#begin()
-Plug 'https://github.com/scrooloose/nerdtree.git'                       "NERDTree插件:      显示目录树形结构
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'              "Mult-Cursors插件:  用于多光标输入操作
-Plug 'https://github.com/scrooloose/nerdcommenter.git'                  "NERDCommenter插件：用于注释
-Plug 'https://github.com/SublimeText/CTags.git'                         "CTags插件：        用于跳转
-Plug 'https://github.com/majutsushi/tagbar.git'                         "tagbar插件         用于显示函数列表
-Plug 'https://github.com/kien/ctrlp.vim.git'                            "CtrlP插件:         用于文件搜索，支持模糊查找
-Plug 'https://github.com/rking/ag.vim.git'                              "Ag插件:            用于工程内全局文本搜索，感觉比EasyGrep好用
-Plug 'https://github.com/rdnetto/YCM-Generator.git'                     "YCM-Generator插件：用于生成YCM文件，与YCM配合使用
-Plug 'https://github.com/elzr/vim-json.git'                             "vim-json插件:      用于更好的显示json文件
-Plug 'https://github.com/easymotion/vim-easymotion.git'
-Plug 'https://github.com/dyng/ctrlsf.vim.git'                           "ctrlsf插件:        更好用的代码查找工具
-Plug 'https://github.com/Valloric/YouCompleteMe.git'                    "YCM插件：          用于自动补全
-"Plug 'https://github.com/Shougo/deoplete.nvim.git'
-"Plug 'https://github.com/Rip-Rip/clang_complete.git'
-"Plug 'https://github.com/roxma/nvim-yarp'
-"Plug 'https://github.com/roxma/vim-hug-neovim-rpc'
-"Plug 'https://github.com/zchee/deoplete-clang.git'
-Plug 'https://github.com/rhysd/vim-clang-format.git'                    "Clang-Format插件： 用于格式化代码风格
-Plug 'https://github.com/kana/vim-smartinput.git'
-Plug 'https://github.com/Yggdroot/indentLine.git'                       "indentLine插件:    用于连接for的首和尾
-Plug 'https://github.com/tpope/vim-fugitive.git'                        "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
-Plug 'https://github.com/airblade/vim-gitgutter.git'                    "gitgutter插件：    用于显示Git diff等
-Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace.git'               "ctrlspace插件:     用于管理缓冲区
-Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
-"Plug 'https://github.com/tpope/vim-projectionist.git'                   "projectionist插件: 用于头文件与实现文件之间转跳
-Plug 'https://github.com/Shougo/echodoc.vim.git'                        "echodoc插件:       用于显示函数参数列表, 不支持YCM, 目前只支持写Python
-Plug 'https://github.com/Yggdroot/LeaderF.git'                          "LeaderF插件:       用于模糊查找
-Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
-Plug 'https://github.com/ayu-theme/ayu-vim.git'
-Plug 'https://github.com/luochen1990/rainbow.git'                       "彩虹括号
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'https://github.com/itchyny/lightline.vim.git'
-Plug 'https://github.com/dense-analysis/ale.git'
-Plug 'https://github.com/gabrielelana/vim-markdown.git'
+" Base URL: https://github.com
+Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构
+Plug 'terryma/vim-multiple-cursors'   "Mult-Cursors插件:  用于多光标输入操作
+Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
+Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数列表
+Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
+Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
+Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
+Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
+Plug 'Yggdroot/LeaderF'               "LeaderF插件:       用于模糊查找
+Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲区
+Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的首和尾
+Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
+Plug 'easymotion/vim-easymotion'
+Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
+Plug 'luochen1990/rainbow'                       "彩虹括号
+
+" Git相关插件
+Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
+Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
+
+" YouCompleteMe 系列插件
+" YCM-Generator插件: 用于生成YCM文件，与YCM配合使用
+" echodoc插件:       用于显示函数参数列表, 必须先编译YouCompleteMe再安装echodoc.
+"Plug 'rdnetto/YCM-Generator'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'Shougo/echodoc.vim'
+
+" Coc 补全
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"Plug 'https://github.com/kana/vim-smartinput.git'
+"Plug 'https://github.com/davidhalter/jedi-vim.git'                      "jedi插件:          用于补全Python, 非常好用
+"Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'          "还未探究
+"Plug 'https://github.com/ayu-theme/ayu-vim.git'
+"Plug 'https://github.com/altercation/vim-colors-solarized.git'
+"Plug 'https://github.com/itchyny/lightline.vim.git'
 
 " 代码块补全
-Plug 'https://github.com/SirVer/ultisnips.git'
-Plug 'https://github.com/honza/vim-snippets.git'
+"Plug 'https://github.com/SirVer/ultisnips.git'
+"Plug 'https://github.com/honza/vim-snippets.git'
 
-Plug 'https://github.com/terryma/vim-expand-region.git'
-Plug 'https://github.com/vim-scripts/groovy.vim.git'
-Plug 'https://github.com/martinda/Jenkinsfile-vim-syntax.git'
-
-Plug 'https://github.com/ap/vim-css-color.git'
-Plug 'https://github.com/mattn/emmet-vim.git'
-Plug 'https://github.com/ternjs/tern_for_vim.git'
-
-
-
+"Plug 'https://github.com/ap/vim-css-color.git'
+"Plug 'https://github.com/mattn/emmet-vim.git'
+"Plug 'https://github.com/ternjs/tern_for_vim.git'
 call plug#end()
+
+autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 "NERDTree 插件配置
 "autocmd vimenter * NERDTree
@@ -199,6 +198,8 @@ highlight GitGutterChangeDeleteLine term=bold
 " 取消<C-e>原有功能, 将其置为expand展开功能
 map <C-e> <NOP>
 let g:UltiSnipsExpandTrigger="<C-e>"
+
+
 
 
 "vim-json插件配置
@@ -357,3 +358,14 @@ function! Terminal_MetaMode(mode)
 endfunc
 
 call Terminal_MetaMode(0)
+
+" Coc补全, Tab触发
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
