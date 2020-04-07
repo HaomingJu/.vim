@@ -149,3 +149,6 @@ Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch
 
 "hi Normal  ctermbg=none
 "highlight Normal ctermfg=15 ctermbg=233
+
+nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>    " 英文翻译
+
