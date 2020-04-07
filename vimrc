@@ -78,7 +78,7 @@ Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显�
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
 Plug 'luochen1990/rainbow'            "彩虹括号
-Plug 'octol/vim-cpp-enhanced-highlight.git'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'itchyny/lightline.vim'
 
 " Git相关插件
