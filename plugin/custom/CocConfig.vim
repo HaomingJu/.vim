@@ -29,3 +29,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " coc-translator 英文翻译
 nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
+
+" 跳转至定义处
+nmap <Leader>d <Plug>(coc-definition)
+"nmap <Leader>c <Plug>(coc-declaration)
+"nmap <Leader>i <Plug>(coc-implementation)
