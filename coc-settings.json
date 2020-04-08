@@ -1,5 +1,26 @@
 {
   "suggest.snippetIndicator": "*",
-  "suggest.enablePreview": true
-
+  "suggest.enablePreview": true,
+  "suggest.noselect": false,
+  "python.jediEnabled": true,
+  "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".git/",
+                ".vim/",
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
 }

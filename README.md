@@ -21,10 +21,13 @@ ln -s /usr/bin/clang-format /usr/bin/clang-format-3.8（请依据你的clang-for
 |A|在行尾追加|D|删除从光标处至行尾的所有文本|
 |.|重复上一次操作
 
+# 三、多代码环境配置说明
 
 
+<img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/c-file-2-502453.png" width="24" height="24" align="bottom"/> [C++环境配置](./doc/DeployCPPEnv.md)
 
-# 三、详细功能介绍
+
+# 四、详细功能介绍
 
 ## 1、代码风格格式化
 作者内置Allman风格配置。<p>
@@ -176,7 +179,3 @@ YouCompleteMe需要自行编译<p>
 
 效果图：<p>
 ![](img/plug.gif)
-
-
-
-感谢有你曾经的陪伴
