@@ -61,6 +61,10 @@ autocmd! bufwritepost .vimrc source %
 set cursorline                        " 高亮光标所在行
 set cursorcolumn                      " 高亮光标所在列
 
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
 " 插件安装管理器要安装的插件列表 Base URL: https://github.com
 call plug#begin()
 Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构

@@ -34,3 +34,16 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 nmap <Leader>d <Plug>(coc-definition)
 "nmap <Leader>c <Plug>(coc-declaration)
 "nmap <Leader>i <Plug>(coc-implementation)
+
+"函数签名提示
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
