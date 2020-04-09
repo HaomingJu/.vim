@@ -13,8 +13,9 @@ set t_Co=256
 
 set background=dark
 let g:molokai_original=1
-colorscheme molokai
+"colorscheme molokai
 "color solarized
+colorscheme gruvbox
 
 " 其他设置
 set showcmd                           " 显示输入的命令
@@ -99,6 +100,8 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 " Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'HaomingJu/vim-snippets' "自定义代码段
+Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim

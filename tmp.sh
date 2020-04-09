@@ -152,3 +152,5 @@ Plug 'https://github.com/derekwyatt/vim-fswitch.git'                    "fswitch
 
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>    " 英文翻译
 
+
+Plug 'morhetz/gruvbox'
