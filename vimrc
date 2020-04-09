@@ -98,7 +98,7 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 
 " Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
+Plug 'HaomingJu/vim-snippets' "自定义代码段
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
