@@ -18,3 +18,8 @@ let g:CtrlSpaceUseUnicode = 0 "设置插件使用ASCII编码方式
 " echodoc插件配置
 let g:echodoc_enable_at_startup = 1
 set noshowmode                      " 关闭命令行中显示当前状态:NORMAL,INSERT,VISUAL
+
+" EasyMotion颜色设置
+hi EasyMotionTarget2First ctermbg=green ctermfg=white
+hi EasyMotionTarget ctermbg=red ctermfg=white
+
