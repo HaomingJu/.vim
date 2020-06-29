@@ -1,7 +1,7 @@
 " 设置LeaderF插件
-noremap <M-p> :LeaderfFile<CR>
-noremap <M-f> :LeaderfFunction<CR>
-noremap <M-m> :LeaderfMru<CR>
-noremap <M-h> :LeaderfHistorySearch<CR>
+noremap <C-p> :LeaderfFile<CR>
+noremap <C-f> :LeaderfBufTag<CR>
+noremap <C-i> :LeaderfMru<CR>
 let g:Lf_WindowHeight=0.3
 let g:Lf_StlColorscheme = 'powerline'
+
