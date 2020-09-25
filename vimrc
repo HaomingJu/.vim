@@ -74,7 +74,7 @@ Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
 Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数列表
 Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
 Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
-Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
+"Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
 Plug 'Yggdroot/LeaderF'               "LeaderF插件:       用于模糊查找
 Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲区
@@ -99,7 +99,8 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 
 " Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+" 强化数字自增/自减
+Plug 'tpope/vim-speeddating'
 
 call plug#end()
 
