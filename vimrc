@@ -1,25 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Author        :       Haoming.Ju                      "
 " Email         :       juhaoming@126.com               "
-" Last modify   :       2018/04/24                      "
+" Last modify   :       2020-12-16                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 包含其他函数
 
 "启动语法检测
 syntax enable
 syntax on
 filetype plugin indent on
 
-"使用molakai配色方案
-set t_Co=256
-let g:molokai_original=1
-colorscheme molokai
-set background=dark
-
-"使用solarized配色方案
-"colorscheme solarized
-"set background=light
-"
-set termguicolors
 
 " 其他设置
 set showcmd                           " 显示输入的命令
@@ -79,7 +69,6 @@ Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
 Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数列表
 Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
 Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
-"Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
 Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
 Plug 'Yggdroot/LeaderF'               "LeaderF插件:       用于模糊查找
 Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲区
@@ -102,16 +91,14 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 "Plug 'rdnetto/YCM-Generator'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'Shougo/echodoc.vim'
+"Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
 
 " Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 强化数字自增/自减
 Plug 'tpope/vim-speeddating'
 Plug 'ekalinin/Dockerfile.vim'
-
 call plug#end()
-
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/plugin/custom/yaml.vim
 
 :source ~/.vim/plugin/custom/keymap.vim
 :source ~/.vim/plugin/custom/NERDTreeConfig.vim
@@ -119,11 +106,12 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/plugin/custom/yaml.vim
 :source ~/.vim/plugin/custom/ClangFormatConfig.vim
 :source ~/.vim/plugin/custom/LittlePluginConfig.vim
 :source ~/.vim/plugin/custom/GitGutterConfig.vim
-:source ~/.vim/plugin/custom/Functions.vim
 :source ~/.vim/plugin/custom/CocConfig.vim
 :source ~/.vim/plugin/custom/CppLightConfig.vim
 :source ~/.vim/plugin/custom/LeaderFConfig.vim
 :source ~/.vim/plugin/custom/CommonConfig.vim
 :source ~/.vim/plugin/custom/RainBow.vim
+:source ~/.vim/plugin/custom/Functions.vim
 
+call SwitchColor()
 call Terminal_MetaMode(0)

@@ -1,4 +1,3 @@
-
 " 函数区
 " 使得vim支持Alt组合键
 function! Terminal_MetaMode(mode)
@@ -44,3 +43,23 @@ endfunc
 
 
 
+" 依据时间选择颜色主题 8:00-18:00 light 18:00-8:00 dark
+function! SwitchColor()
+    set t_Co=256
+    let colorscheme_time=strftime("H")
+    if colorscheme_time < 8
+        "使用molakai配色方案
+        let g:molokai_original=1
+        colorscheme molokai
+        set background=dark
+    elseif colorscheme_time < 18
+        "使用solarized配色方案
+        colorscheme solarized
+        set background=light
+    else
+        "使用molakai配色方案
+        let g:molokai_original=1
+        colorscheme molokai
+        set background=dark
+    endif
+endfunc
