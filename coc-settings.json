@@ -11,18 +11,28 @@
             "command": "ccls",
             "filetypes": [
                 "c",
-                "cpp",
+                "cpp"
             ],
             "rootPatterns": [
                 ".ccls",
                 "compile_commands.json",
                 ".git/",
-                ".vim/",
+                ".vim/"
             ],
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
                 }
+            }
+        },
+        "cmake": {
+            "command": "cmake-language-server",
+            "filetypes": ["cmake"],
+            "rootPatterns": [
+                "build/"
+            ],
+            "initializationOptions": {
+                "buildDirectory": "build"
             }
         }
   },
