@@ -7,6 +7,7 @@
 "启动语法检测
 syntax enable
 syntax on
+filetype plugin indent on
 
 "使用molakai配色方案
 set t_Co=256
@@ -123,5 +124,6 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/plugin/custom/yaml.vim
 :source ~/.vim/plugin/custom/CppLightConfig.vim
 :source ~/.vim/plugin/custom/LeaderFConfig.vim
 :source ~/.vim/plugin/custom/CommonConfig.vim
+:source ~/.vim/plugin/custom/RainBow.vim
 
 call Terminal_MetaMode(0)
