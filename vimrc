@@ -10,12 +10,15 @@ syntax on
 
 "使用molakai配色方案
 set t_Co=256
-
-set background=dark
 let g:molokai_original=1
-"colorscheme molokai
-"color solarized
-colorscheme gruvbox
+colorscheme molokai
+set background=dark
+
+"使用solarized配色方案
+"colorscheme solarized
+"set background=light
+"
+set termguicolors
 
 " 其他设置
 set showcmd                           " 显示输入的命令
@@ -62,6 +65,7 @@ autocmd! bufwritepost .vimrc source %
 set cursorline                        " 高亮光标所在行
 set cursorcolumn                      " 高亮光标所在列
 
+
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
@@ -90,6 +94,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
 
+
 " YouCompleteMe 系列插件
 " YCM-Generator插件: 用于生成YCM文件，与YCM配合使用
 " echodoc插件:       用于显示函数参数列表, 必须先编译YouCompleteMe再安装echodoc.
@@ -101,8 +106,11 @@ Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git dif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 强化数字自增/自减
 Plug 'tpope/vim-speeddating'
+Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
+
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/plugin/custom/yaml.vim
 
 :source ~/.vim/plugin/custom/keymap.vim
 :source ~/.vim/plugin/custom/NERDTreeConfig.vim
@@ -115,4 +123,5 @@ call plug#end()
 :source ~/.vim/plugin/custom/CppLightConfig.vim
 :source ~/.vim/plugin/custom/LeaderFConfig.vim
 :source ~/.vim/plugin/custom/CommonConfig.vim
+
 call Terminal_MetaMode(0)

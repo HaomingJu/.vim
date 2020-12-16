@@ -1,4 +1,7 @@
 {
+  "coc.preferences.previewAutoClose": false,
+  "http.proxy": "http://127.0.0.1:12333",
+
   "suggest.snippetIndicator": "*",
   "suggest.enablePreview": true,
   "suggest.noselect": false,

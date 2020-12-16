@@ -27,6 +27,9 @@ antigen bundle web-search
 antigen bundle z
 antigen bundle cp
 antigen bundle extract
+antigen bundle history
+antigen bundle docker
+antigen bundle dash
 
 antigen apply
 
@@ -35,19 +38,28 @@ export TERM=xterm-256color
 ZSH_THEME="af-magic"
 HIST_STAMPS="mm/dd/yyyy"
 
+# 不保存重复的历史记录项
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+
+
 export ARCNIST_PATH=$HOME/software/arcnistDirs/arcanist
-export PATH=$HOME/bin:/usr/local/bin:$HOME/Desktop/ipc:$ARCNIST_PATH/bin:/opt/ros/kinetic/lib/x86_64-linux-gnu:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/Desktop/ipc:$ARCNIST_PATH/bin:/opt/ros/kinetic/lib/x86_64-linux-gnu:/usr/local/cuda/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
 # 命令别名
+alias CL='clang-format-3.8 -i'
 alias l='ls -alh'
 alias ll='ls -lh'
 alias g='git status'
 alias gb='git branch -avv'
 alias t='tig'
+alias c='clang-format-3.8 -i'
+alias vi='vim'
+alias v='vim'
 alias rm='trash-put'
-alias RM="rm"
+#alias RM="rm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey '^f' vi-forward-word
@@ -97,9 +109,41 @@ bindkey '^f' vi-forward-word
 # User configuration
 
 
-source /opt/ros/kinetic/setup.zsh
 
-# 配置命令行 科学上网. ssr
+
+#export TensorRT_DIR=/home/xd/TensorRT-7.0.0.11
+export TensorRT_DIR=/home/xd/TensorRT-7.1.3.4
+export ARTIFACTORY_USERNAME=haoming
+export ARTIFACTORY_PWD=Juhaoming123
+
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:/home/gpu/libtorch/lib/:${LD_LIBRARY_PATH}
+
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/lib64/:/home/gpu/libtorch/lib/:${LD_LIBRARY_PATH}:${TensorRT_DIR}/lib
+
+export CPLUS_INCLUDE_PATH=/usr/local/cuda/include:${CPLUS_INCLUDE_PATH}
+
+export C_INCLUDE_PATH=/usr/local/cuda/include:${C_INCLUDE_PATH}
+
+export FZF_DEFAULT_COMMAND='ag -g '
+
+source /opt/ros/kinetic/setup.zsh
+source /opt/trunk/install_release/setup.sh
+
+# Nvidia 板子
+#export ROS_HOSTNAME=192.168.1.1
+#export ROS_MASTER_URI=http://192.168.1.1:11311
+
+export ROS_HOSTNAME=127.0.0.1
+export ROS_MASTER_URI=http://127.0.0.1:11311
+#
+#export ROS_HOSTNAME=192.168.3.102
+#export ROS_MASTER_URI=http://192.168.3.102:11311
+
 #export http_proxy="http://127.0.0.1:12333"
 #export https_proxy="http://127.0.0.1:12333"
 
+#export DISTCC_POTENTIAL_HOSTS='localhost 192.168.3.171'
+#export DISTCC_HOSTS='localhost 192.168.3.171'
+#export DISTCC_HOSTS='192.168.3.171 localhost'
+#export CXX="distcc g++"
+#export CC="distcc gcc"
