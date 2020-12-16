@@ -1,7 +1,9 @@
 {
-  "coc.preferences.previewAutoClose": false,
   "http.proxy": "http://127.0.0.1:12333",
-
+  "snippets.userSnippetsDirectory": "~/.vim/Snippets",
+  "snippets.ultisnips.enable": true,
+  "snippets.snipmate.enable": false,
+  "coc.preferences.previewAutoClose": false,
   "suggest.snippetIndicator": "*",
   "suggest.enablePreview": true,
   "suggest.noselect": false,
