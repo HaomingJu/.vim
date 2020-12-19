@@ -23,3 +23,8 @@ set noshowmode                      " 关闭命令行中显示当前状态:NORMA
 hi EasyMotionTarget2First ctermbg=green ctermfg=white
 hi EasyMotionTarget ctermbg=red ctermfg=white
 
+
+
+" linelight配色
+let g:lightline={'colorscheme': 'solarized'}
+"let g:lightline={'colorscheme': 'one'}

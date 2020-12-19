@@ -17,7 +17,6 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>     " YCM: �
 " 功能键系列
 map <F3> :Gblame<CR>              " 开关Git diff
 map <F4> :GitGutterToggle<CR>     " TODO
-map <F7> :ClangFormat<CR>         " 代码格式化
 map <F9> :CCtoggle<CR>            " TODO
 map <F10> :NERDTreeToggle<CR>     " 开闭目录树窗口
 map <F12> :TagbarToggle<CR>       " 开闭函数结构窗口

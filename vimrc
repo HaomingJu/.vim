@@ -75,10 +75,11 @@ Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲�
 Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的首和尾
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
 Plug 'easymotion/vim-easymotion'
-Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
+Plug 'Chiel92/vim-autoformat'
 Plug 'luochen1990/rainbow'            "彩虹括号
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'itchyny/lightline.vim'
+Plug 'honza/vim-snippets'
 
 " Git相关插件
 Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
@@ -103,7 +104,6 @@ call plug#end()
 :source ~/.vim/plugin/custom/keymap.vim
 :source ~/.vim/plugin/custom/NERDTreeConfig.vim
 :source ~/.vim/plugin/custom/YouCompletaMeConfig.vim
-:source ~/.vim/plugin/custom/ClangFormatConfig.vim
 :source ~/.vim/plugin/custom/LittlePluginConfig.vim
 :source ~/.vim/plugin/custom/GitGutterConfig.vim
 :source ~/.vim/plugin/custom/CocConfig.vim
@@ -112,6 +112,7 @@ call plug#end()
 :source ~/.vim/plugin/custom/CommonConfig.vim
 :source ~/.vim/plugin/custom/RainBow.vim
 :source ~/.vim/plugin/custom/Functions.vim
+:source ~/.vim/plugin/custom/AutoFormat.vim
 
 call SwitchColor()
 call Terminal_MetaMode(0)
