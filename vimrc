@@ -36,8 +36,7 @@ set list                              " 将空格,制表等空白字符都用特
 set listchars=tab:>-,trail:-          " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                      " 自动缩进使用4个空格"
 
-" 在上下移动光标时，光标上方或者下方至少会保留显示的行数
-set scrolloff=10
+set scrolloff=10                      " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
 
 " 设置当前缓冲区的搜索选项
 set ignorecase                        " 忽略大小写
@@ -55,9 +54,6 @@ autocmd! bufwritepost .vimrc source %
 " 高亮光标所在行和列
 set cursorline                        " 高亮光标所在行
 set cursorcolumn                      " 高亮光标所在列
-
-
-" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
 
@@ -75,30 +71,16 @@ Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲�
 Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的首和尾
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
 Plug 'easymotion/vim-easymotion'
-Plug 'Chiel92/vim-autoformat'
 Plug 'luochen1990/rainbow'            "彩虹括号
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'itchyny/lightline.vim'
-Plug 'honza/vim-snippets'
-
-" Git相关插件
+Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
 Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
-
-
-" YouCompleteMe 系列插件
-" YCM-Generator插件: 用于生成YCM文件，与YCM配合使用
-" echodoc插件:       用于显示函数参数列表, 必须先编译YouCompleteMe再安装echodoc.
-"Plug 'rdnetto/YCM-Generator'
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'Shougo/echodoc.vim'
-"Plug 'kien/ctrlp.vim'                 "CtrlP插件:         用于文件搜索，支持模糊查找
-
-" Coc 补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" 强化数字自增/自减
-Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating'          " 强化数字自增/自减
 Plug 'ekalinin/Dockerfile.vim'
+"Plug 'honza/vim-snippets'
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
@@ -112,7 +94,7 @@ call plug#end()
 :source ~/.vim/plugin/custom/CommonConfig.vim
 :source ~/.vim/plugin/custom/RainBow.vim
 :source ~/.vim/plugin/custom/Functions.vim
-:source ~/.vim/plugin/custom/AutoFormat.vim
+:source ~/.vim/plugin/custom/CodeStyle.vim
 
 call SwitchColor()
 call Terminal_MetaMode(0)
