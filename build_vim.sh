@@ -1,14 +1,19 @@
 #! /usr/bin/env bash
 
-./configure --with-features=huge \
-                --enable-multibyte \
-                --enable-rubyinterp=yes \
-                --with-python-command=python2 \
-                --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
-                --enable-pythoninterp=yes \
-                --enable-perlinterp=yes \
-                --enable-luainterp=yes \
-                --enable-cscope \
-                --enable-gui=gtk2 --enable-cscope --prefix=/usr/local/bin/
+# 支持clipboard
+sudo apt install -y libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev
 
+./configure \
+    --with-features=huge \
+    --enable-multibyte \
+    --enable-rubyinterp=yes \
+    --enable-python3interp=yes \
+    --with-python3-command=/usr/bin/python3 \
+    --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+    --enable-perlinterp=yes \
+    --enable-luainterp=yes  \
+    --enable-cscope \
+    --with-x
 
+make -j8
+sudo make install
