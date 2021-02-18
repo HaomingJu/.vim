@@ -1,3 +1,3 @@
 [submodule "Snippets"]
 	path = Snippets
-	url = ./Snippets
+	url = https://github.com/HaomingJu/Snippets.git
