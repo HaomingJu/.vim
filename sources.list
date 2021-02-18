@@ -1,8 +1,0 @@
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
-deb http://packages.ros.org.ros.informatik.uni-freiburg.de/ros/ubuntu xenial main
-# deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ xenial main
-# deb http://packages.ros.org/ros/ubuntu xenial main
-

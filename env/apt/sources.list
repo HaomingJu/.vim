@@ -1,0 +1,11 @@
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+
+# 自行搭建的软件源, 参照Github: https://github.com/HaomingJu/mirror.git
+
+#deb http://gpu:8012/ubuntu/ bionic main restricted universe multiverse
+#deb http://gpu:8012/ubuntu/ bionic-updates main restricted universe multiverse
+#deb http://gpu:8012/ubuntu/ bionic-backports main restricted universe multiverse
+#deb http://gpu:8012/ubuntu/ bionic-security main restricted universe multiverse

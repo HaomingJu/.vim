@@ -36,7 +36,7 @@ set list                              " 将空格,制表等空白字符都用特
 set listchars=tab:>-,trail:-          " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                      " 自动缩进使用4个空格"
 
-set scrolloff=10                      " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
+"set scrolloff=10                      " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
 
 " 设置当前缓冲区的搜索选项
 set ignorecase                        " 忽略大小写

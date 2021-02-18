@@ -1,20 +1,11 @@
+# CopyRight 2021 EveryOne
 #
-# CopyRight 2018 EveryOne
-#
-# 使用antigen插件管理器
-#curl -L git.io/antigen > antigen.zsh
-
-
-# 安装oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-
 # [可选] autojump插件安装
 # sudo apt-get install autojump
 # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 
-source ~/.vim/antigen/antigen.zsh
+source ~/.vim/env/zsh/antigen/antigen.zsh
 
 # antigen插件列表
 antigen bundle git
@@ -45,8 +36,8 @@ source $ZSH/oh-my-zsh.sh
 
 # 命令别名
 alias CL='clang-format-3.8 -i'
-alias l='ls -alh'
-alias ll='ls -lh'
+alias ll='ls -alh'
+alias l='ls -lh'
 alias g='git status'
 alias gb='git branch -avv'
 alias t='tig'
@@ -61,7 +52,4 @@ bindkey '^b' vi-backward-word
 
 export FZF_DEFAULT_COMMAND='ag -g '
 
-source ~/local.zsh
-
-#export http_proxy="http://127.0.0.1:12333"
-#export https_proxy="http://127.0.0.1:12333"
+source ~/.local.zsh
