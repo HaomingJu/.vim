@@ -9,8 +9,8 @@ sudo apt install -y \
     cscope \
     trash-cli \
     zsh \
-    python3-jedi \
-    clang-format-3.9
+    clang-format-3.9 \
+    python3-pip
 
 # 安装fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
@@ -56,7 +56,11 @@ sudo ln -s -f ~/.vim/env/tig/tigrc.theme ~/.tigrc.theme
 sudo ln -s -f ~/.vim/env/tmux/tmux.conf ~/.tmux.conf
 sudo ln -s -f ~/.vim/env/zsh/af-magic.zsh-theme ~/.oh-my-zsh/themes/af-magic.zsh-theme
 
-# 安装C++ Language Server
+# 安装C++ Language Server, 若条件允许请通过科学上网进行下载
 sudo snap set system proxy.https="http://127.0.0.1:12333"
 sudo snap set system proxy.http="http://127.0.0.1:12333"
 sudo snap install ccls --classic
+
+# 安装Python Language Server
+sudo pip3 install --upgrade pip
+sudo pip install jedi==0.18.0

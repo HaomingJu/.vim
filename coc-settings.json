@@ -31,5 +31,7 @@
   "translator.engines": [
       "youdao",
       "google"
-  ]
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }
