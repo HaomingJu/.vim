@@ -10,7 +10,8 @@ sudo apt install -y \
     trash-cli \
     zsh \
     clang-format-3.9 \
-    python3-pip
+    python3-pip \
+    fcitx
 
 # 安装fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
