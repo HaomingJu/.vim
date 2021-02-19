@@ -55,6 +55,7 @@ sudo ln -s -f ~/.vim/env/tig/tigrc ~/.tigrc
 sudo ln -s -f ~/.vim/env/tig/tigrc.theme ~/.tigrc.theme
 sudo ln -s -f ~/.vim/env/tmux/tmux.conf ~/.tmux.conf
 sudo ln -s -f ~/.vim/env/zsh/af-magic.zsh-theme ~/.oh-my-zsh/themes/af-magic.zsh-theme
+sudo ln -s -f /usr/bin/clang-format `which clang-format-3.9`
 
 # 安装C++ Language Server, 若条件允许请通过科学上网进行下载
 sudo snap set system proxy.https="http://127.0.0.1:12333"
