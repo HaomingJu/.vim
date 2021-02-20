@@ -9,15 +9,16 @@ sudo apt install -y \
     cscope \
     trash-cli \
     zsh \
-    clang-format-3.9 \
-    python3-pip \
-    fcitx
+    clang-format-3.8 \
+    python-pip \
+    fcitx \
+    libncurses5-dev
 
 # 安装fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 # 安装oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 sudo chsh -s `which zsh`
 
@@ -26,17 +27,17 @@ sudo apt install -y libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev
 
 # 下载vim8.2
 wget https://github.com/vim/vim/archive/v8.2.2529.zip
-unzip ./vim-8.2.2529.zip
+unzip ./v8.2.2529.zip
 
 # 编译vim8.2
-cd vim-8.2.2521 && \
+cd vim-8.2.2529 && \
     ./configure \
     --with-features=huge \
     --enable-multibyte \
     --enable-rubyinterp=yes \
-    --enable-python3interp=yes \
-    --with-python3-command=/usr/bin/python3 \
-    --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+    --enable-pythoninterp=yes \
+    --with-python-command=/usr/bin/python \
+    --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
     --enable-perlinterp=yes \
     --enable-luainterp=yes  \
     --enable-cscope \
@@ -56,7 +57,7 @@ sudo ln -s -f ~/.vim/env/tig/tigrc ~/.tigrc
 sudo ln -s -f ~/.vim/env/tig/tigrc.theme ~/.tigrc.theme
 sudo ln -s -f ~/.vim/env/tmux/tmux.conf ~/.tmux.conf
 sudo ln -s -f ~/.vim/env/zsh/af-magic.zsh-theme ~/.oh-my-zsh/themes/af-magic.zsh-theme
-sudo ln -s -f /usr/bin/clang-format `which clang-format-3.9`
+sudo ln -s -f  `which clang-format-3.8` /usr/bin/clang-format
 
 # 安装C++ Language Server, 若条件允许请通过科学上网进行下载
 sudo snap set system proxy.https="http://127.0.0.1:12333"
@@ -64,5 +65,6 @@ sudo snap set system proxy.http="http://127.0.0.1:12333"
 sudo snap install ccls --classic
 
 # 安装Python Language Server
-sudo pip3 install --upgrade pip
-sudo pip install jedi==0.18.0
+#curl https://bootstrap.pypa.io/2.7/get-pip.py --output get-pip.py
+sudo python env/python2.7/get-pip.py
+sudo pip install jedi

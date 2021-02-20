@@ -40,7 +40,11 @@ vim -c PlugInstall
 打开C++/Python文件, 查看补全功能
 ```
 
-// TODO(haoming): 动图补充
 
+# 3. 功能介绍
+
+## 3.1 快捷键说明
+
+## 3.2 特色功能
 
 > [快速部署科学上网链接](https://邀请01.很有精神.com/auth/register?code=gCCw)
