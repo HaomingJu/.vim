@@ -48,14 +48,14 @@ set laststatus=2
 set nocompatible
 set hidden
 
-"修改vimrc文件之后，自动加载
-autocmd! bufwritepost .vimrc source %
 
 " 高亮光标所在行和列
 set cursorline                        " 高亮光标所在行
+
 set cursorcolumn                      " 高亮光标所在列
 set nobackup
 set nowritebackup
+
 
 " 插件安装管理器要安装的插件列表 Base URL: https://github.com
 call plug#begin()
@@ -84,6 +84,7 @@ Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
+:source ~/.vim/plugin/custom/AutoCmd.vim
 :source ~/.vim/plugin/custom/NERDTreeConfig.vim
 :source ~/.vim/plugin/custom/YouCompletaMeConfig.vim
 :source ~/.vim/plugin/custom/LittlePluginConfig.vim
@@ -94,7 +95,11 @@ call plug#end()
 :source ~/.vim/plugin/custom/CommonConfig.vim
 :source ~/.vim/plugin/custom/RainBow.vim
 :source ~/.vim/plugin/custom/Functions.vim
+
 :source ~/.vim/plugin/custom/CodeStyle.vim
+
+
 
 call SwitchColor()
 call Terminal_MetaMode(0)
+
