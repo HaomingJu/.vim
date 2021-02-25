@@ -1,5 +1,5 @@
 function! SwitchInputMethod()
-    silent !fcitx-remote -c
+    call job_start('fcitx-remote -c')
 endfunc
 
 "autocmd InsertLeave * :silent !fcitx-remote -c
@@ -9,3 +9,4 @@ endfunc
 "
 autocmd InsertLeave * :call SwitchInputMethod()
 autocmd BufCreate *  :call SwitchInputMethod()
+autocmd BufEnter *  :call SwitchInputMethod()

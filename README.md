@@ -45,6 +45,59 @@ vim -c PlugInstall
 
 ## 3.1 快捷键说明
 
+| 快捷键 | 功能 | 定义 |
+| ---- | ---- | ---- |
+| Space | Leader键 | let mapleader="\<Space>" |
+| Ctrl+J | 窗口间光标跳转---向下 | nmap <C-J> :wincmd j<CR> |
+| Ctrl+K | 窗口间光标跳转---向上 | nmap <C-K> :wincmd k<CR> |
+| Ctrl+H | 窗口间光标跳转---向左 | nmap <C-H> :wincmd h<CR> |
+| Ctrl+L | 窗口间光标跳转---向右 | nmap <C-L> :wincmd l<CR> |
+| m | 高亮光标所在的单词 | nmap m gd |
+| F7 | 格式化C系代码 | |
+| F10 | 开闭目录树窗口 | map <F10> :NERDTreeToggle<CR> |
+| F12 | 开闭函数结构窗口 | map <F12> :TagbarToggle<CR> |
+
 ## 3.2 特色功能
+
+插件安装
+
+![PlugInstall](doc/img/PlugInstall.gif)
+
+文件搜索 [来自CtrlP]
+
+![CtrlP](doc/img/CtrlP.gif)
+
+代码段补全 [来自coc-snippet]
+
+![Snippets](doc/img/Snippets.gif)
+
+C++语法解析补全 [来自coc language server: ccls]
+
+![C++](doc/img/coc_c++.gif)
+
+Python语法解析补全 [来自coc language server: jedi]
+
+![Python](doc/img/coc_python.gif)
+
+CMake语法补全 [来自coc]
+
+![cmake](doc/img/cmake.gif)
+
+
+注释代码 [来自]
+
+![comment](doc/img/comment.gif)
+
+快速移动 [来自easy-motion]
+
+![easy-motion](doc/img/easy_motion.gif)
+
+目录树 [来自NERDTree]
+
+![nerdtree](doc/img/nerd_tree.gif)
+
+函数表搜索
+
+![funcs](doc/img/funcs.gif)
 
 > [快速部署科学上网链接](https://邀请01.很有精神.com/auth/register?code=gCCw)
