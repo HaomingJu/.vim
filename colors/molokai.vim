@@ -137,11 +137,11 @@ end
 if &t_Co > 255
    if s:molokai_original == 1
       hi Normal                   ctermbg=234
-      hi CursorLine               ctermbg=235   cterm=none
+      hi CursorLine               ctermbg=242   cterm=bold
       hi CursorLineNr ctermfg=208               cterm=none
    else
       hi Normal       ctermfg=252 ctermbg=233
-      hi CursorLine               ctermbg=234   cterm=none
+      hi CursorLine               ctermbg=242   cterm=bold
       hi CursorLineNr ctermfg=208               cterm=none
    endif
    hi Boolean         ctermfg=135
@@ -220,13 +220,13 @@ if &t_Co > 255
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
    hi VisualNOS                   ctermbg=238
-   hi Visual          ctermfg=232 ctermbg=231   cterm=bold
+   hi Visual          ctermbg=242   cterm=bold
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Comment         ctermfg=59
-   hi CursorColumn                ctermbg=236
-   hi ColorColumn                 ctermbg=236
+   hi CursorColumn                ctermbg=242
+   hi ColorColumn                 ctermbg=242
    hi LineNr          ctermfg=250 ctermbg=236
    hi NonText         ctermfg=59
 
@@ -262,7 +262,7 @@ if &t_Co > 255
        hi Statement       ctermfg=197               cterm=bold
        hi Tag             ctermfg=197
        hi Title           ctermfg=203
-       hi Visual          ctermfg=232 ctermbg=231   cterm=bold
+       hi Visual          ctermbg=242   cterm=bold
 
        hi Comment         ctermfg=244
        hi LineNr          ctermfg=239 ctermbg=235
