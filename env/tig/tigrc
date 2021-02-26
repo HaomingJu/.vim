@@ -25,4 +25,4 @@ set commit-order = default
 set line-graphics = utf-8
 
 
-source ~/.vim/.tigrc.theme
+source ~/.tigrc.theme
