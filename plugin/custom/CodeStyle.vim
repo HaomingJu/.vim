@@ -35,5 +35,3 @@ let g:formatdef_custom_cpp = '"clang-format -style=\"{
             \ PointerAlignment: Left,
             \ SpaceBeforeParens: Never,
             \ }\" "'
-
-let g:formatters_cpp = ['custom_cpp']
