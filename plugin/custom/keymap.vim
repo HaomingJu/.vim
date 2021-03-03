@@ -1,8 +1,12 @@
 let mapleader="\<Space>"    " 修改了leader键盘
-nmap <C-H> <C-W>h           " 窗口间光标跳转---向下
-nmap <C-J> <C-W>j           " 窗口间光标跳转---向上
-nmap <C-K> <C-W>k           " 窗口间光标跳转---向右
-nmap <C-L> <C-W>l           " 窗口间光标跳转---向左
+"nmap <C-H> <C-W>h           " 窗口间光标跳转---向下
+"nmap <C-J> <C-W>j           " 窗口间光标跳转---向上
+"nmap <C-K> <C-W>k           " 窗口间光标跳转---向右
+"nmap <C-L> <C-W>l           " 窗口间光标跳转---向左
+nmap <C-H> :wincmd h<CR>           " 窗口间光标跳转---向下
+nmap <C-J> :wincmd j<CR>           " 窗口间光标跳转---向上
+nmap <C-K> :wincmd k<CR>           " 窗口间光标跳转---向右
+nmap <C-L> :wincmd l<CR>           " 窗口间光标跳转---向左
 
 map <Leader>w :w<CR>                    " 保存文件
 map <Leader>s :vsplit<CR>               " 窗口竖向分割
@@ -19,8 +23,8 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>     " YCM: �
 map <F3> :Gblame<CR>              " 开关Git diff
 map <F4> :GitGutterToggle<CR>     " TODO
 map <F9> :CCtoggle<CR>            " TODO
-map <F10> :NERDTreeToggle<CR>     " 开闭目录树窗口
 map <F12> :TagbarToggle<CR>       " 开闭函数结构窗口
+map <F10> :NERDTreeToggle<CR>     " 开闭目录树窗口
 
 
 vmap <C-c> "+y                        " 在Visual模式下，组合键Ctrl+c可以将选中的内容复制到系统剪切板中

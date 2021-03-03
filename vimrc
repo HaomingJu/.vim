@@ -35,7 +35,6 @@ set expandtab                         " 用空格替代制表符
 set list                              " 将空格,制表等空白字符都用特殊可见字符显示出来"
 set listchars=tab:>-,trail:-          " 定义显示空白字符的特殊可见字符
 set shiftwidth=4                      " 自动缩进使用4个空格"
-
 "set scrolloff=10                      " 在上下移动光标时，光标上方或者下方至少会保留显示的行数
 
 " 设置当前缓冲区的搜索选项
@@ -51,16 +50,13 @@ set hidden
 
 " 高亮光标所在行和列
 set cursorline                        " 高亮光标所在行
-
 set cursorcolumn                      " 高亮光标所在列
 set nobackup
 set nowritebackup
 
-
 " 插件安装管理器要安装的插件列表 Base URL: https://github.com
 call plug#begin()
 Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构
-Plug 'terryma/vim-multiple-cursors'   "Mult-Cursors插件:  用于多光标输入操作
 Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
 Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数列表
 Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
@@ -75,12 +71,16 @@ Plug 'luochen1990/rainbow'            "彩虹括号
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'itchyny/lightline.vim'
 Plug 'Chiel92/vim-autoformat'
-Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具，用于查看两文件差异(比gitgutter好用)
+Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具
 Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-speeddating'          " 强化数字自增/自减
 Plug 'ekalinin/Dockerfile.vim'
-"Plug 'honza/vim-snippets'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'itchyny/vim-cursorword'
+Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
@@ -95,9 +95,7 @@ call plug#end()
 :source ~/.vim/plugin/custom/CommonConfig.vim
 :source ~/.vim/plugin/custom/RainBow.vim
 :source ~/.vim/plugin/custom/Functions.vim
-
 :source ~/.vim/plugin/custom/CodeStyle.vim
-
 
 
 call SwitchColor()

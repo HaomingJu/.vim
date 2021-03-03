@@ -1,6 +1,6 @@
 "Coc 插件
 
-call coc#add_extension('coc-json', 'coc-cmake', 'coc-snippets', 'coc-tsserver', 'coc-python', 'coc-html', 'coc-translator', 'coc-pairs')
+call coc#add_extension('coc-json', 'coc-cmake', 'coc-snippets', 'coc-tsserver', 'coc-python', 'coc-html', 'coc-translator', 'coc-pairs', 'coc-calc')
 
 " Coc补全, Tab触发
 function! s:check_back_space() abort
