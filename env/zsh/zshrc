@@ -19,6 +19,8 @@ antigen bundle extract
 antigen bundle history
 antigen bundle docker
 antigen bundle dash
+antigen bundle 'wfxr/forgit'
+
 
 antigen apply
 
