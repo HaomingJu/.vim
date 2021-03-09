@@ -14,6 +14,8 @@ sudo apt install -y \
     fcitx \
     libncurses5-dev
 
+sudo git clone https://github.com/denisidoro/navi.git /opt/navi && cd /opt/navi && sudo make install
+
 # 安装fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 

@@ -13,7 +13,8 @@ map <Leader>s :vsplit<CR>               " 窗口竖向分割
 nmap <Leader>q :qa<CR>                  " 不保存退出文件
 vmap <Leader>y "+y                      " 复制选中字段至剪贴板
 nmap <Leader>f :CtrlSF <C-R><C-W><CR>   " 搜索增强
-map <Leader>e :CocCommand snippets.editSnippets<CR>
+"map <Leader>e :CocCommand snippets.editSnippets<CR>
+map <Leader>e :CocDiagnostics<CR>
 
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>     " YCM: 跳转至定义处

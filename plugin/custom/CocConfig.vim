@@ -32,6 +32,9 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 
 " 跳转至定义处
 nmap <Leader>d <Plug>(coc-definition)
+nmap <Leader>j <Plug>(coc-diagnostic-next)<CR>
+nmap <Leader>k <Plug>(coc-diagnostic-pre)<CR>
+
 "nmap <Leader>c <Plug>(coc-declaration)
 "nmap <Leader>i <Plug>(coc-implementation)
 

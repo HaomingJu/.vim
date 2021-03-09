@@ -22,7 +22,7 @@ set commit-order = default
 #set main-view-commit-title-graph = v1
 
 # set main-view-id-display = yes
-set line-graphics = utf-8
+set line-graphics = ascii
 
 
 source ~/.tigrc.theme
