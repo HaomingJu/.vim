@@ -70,7 +70,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'luochen1990/rainbow'            "彩虹括号
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'itchyny/lightline.vim'
-Plug 'Chiel92/vim-autoformat'
+Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
 Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具
 Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
