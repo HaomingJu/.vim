@@ -6,32 +6,30 @@
 " 配置的相关选项参照网址 "http://clang.llvm.org/docs/ClangFormatStyleOptions.html#"
 
 
-map <F7> :Autoformat<CR>
+map <F7> :ClangFormat<CR>
 
-let g:formatdef_custom_cpp = '"clang-format -style=\"{
-            \ BasedOnStyle: google,
-            \ Standard: C++11,
-            \ BreakBeforeBraces: Allman,
-            \ AlignAfterOpenBracket: Align,
-            \ SpaceBeforeAssignmentOperators: true,
-            \ AlignOperands: false,
-            \ AlignTrailingComments: true,
-            \ AllowAllParametersOfDeclarationOnNextLine: false,
-            \ AllowShortCaseLabelsOnASingleLine: false,
-            \ AllowShortIfStatementsOnASingleLine: false,
-            \ AllowShortLoopsOnASingleLine: false,
-            \ AlwaysBreakTemplateDeclarations: true,
-            \ BinPackArguments: false,
-            \ BinPackParameters: false,
-            \ BreakBeforeBinaryOperators: None,
-            \ BreakConstructorInitializersBeforeComma: true,
-            \ MaxEmptyLinesToKeep: 1,
-            \ ReflowComments: false,
-            \ SpaceAfterCStyleCast: true,
-            \ ColumnLimit : 120,
-            \ IndentWrappedFunctionNames: true,
-            \ AccessModifierOffset: -2,
-            \ AllowShortFunctionsOnASingleLine: Empty,
-            \ PointerAlignment: Left,
-            \ SpaceBeforeParens: Never,
-            \ }\" "'
+let g:clang_format#style_options = {
+            \ "Standard": "C++11",
+            \ "BreakBeforeBraces": "Allman",
+            \ "AlignAfterOpenBracket": "Align",
+            \ "SpaceBeforeAssignmentOperators": "true",
+            \ "AlignTrailingComments": "true",
+            \ "AllowAllParametersOfDeclarationOnNextLine": "false",
+            \ "AllowShortCaseLabelsOnASingleLine": "false",
+            \ "AllowShortIfStatementsOnASingleLine": "false",
+            \ "AllowShortLoopsOnASingleLine": "false",
+            \ "AlwaysBreakTemplateDeclarations": "true",
+            \ "BinPackArguments": "false",
+            \ "BinPackParameters": "false",
+            \ "BreakBeforeBinaryOperators": "None",
+            \ "BreakConstructorInitializersBeforeComma": "true",
+            \ "MaxEmptyLinesToKeep": 1,
+            \ "ReflowComments": "false",
+            \ "SpaceAfterCStyleCast": "true",
+            \ "ColumnLimit" : 120,
+            \ "IndentWrappedFunctionNames": "true",
+            \ "AccessModifierOffset": -2,
+            \ "AllowShortFunctionsOnASingleLine": "Empty",
+            \ "PointerAlignment": "Left",
+            \ "SpaceBeforeParens": "Never"
+            \}
