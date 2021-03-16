@@ -80,6 +80,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/vim-cursorword'
 Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
