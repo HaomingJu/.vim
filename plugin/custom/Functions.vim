@@ -45,6 +45,8 @@ endfunc
 
 " 依据时间选择颜色主题 8:00-18:00 light 18:00-8:00 dark
 function! SwitchColor()
+    " jackguo380/vim-lsp-cxx-highlight 配置变量, C++变量颜色渲染
+    let g:lsp_cxx_hl_use_text_props = 1
     set t_Co=256
     let colorscheme_time=strftime("H")
     if colorscheme_time < 8
