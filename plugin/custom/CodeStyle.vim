@@ -28,6 +28,7 @@ let g:clang_format#style_options = {
             \ "SpaceAfterCStyleCast": "true",
             \ "ColumnLimit" : 120,
             \ "IndentWrappedFunctionNames": "true",
+            \ "DerivePointerAlignment": "false",
             \ "AccessModifierOffset": -2,
             \ "AllowShortFunctionsOnASingleLine": "Empty",
             \ "PointerAlignment": "Left",
