@@ -197,7 +197,7 @@ if &t_Co > 255
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
    hi SpecialChar     ctermfg=161               cterm=bold
-   hi SpecialComment  ctermfg=11               cterm=bold
+   hi SpecialComment  ctermfg=226               cterm=bold
    hi Special         ctermfg=81
    if has("spell")
        hi SpellBad                ctermbg=52
@@ -212,7 +212,7 @@ if &t_Co > 255
    hi Structure       ctermfg=81
    hi Tag             ctermfg=161
    hi Title           ctermfg=166
-   hi Todo            ctermfg=231 ctermbg=232   cterm=bold
+   hi Todo            ctermfg=196 ctermbg=232   cterm=bold
 
    hi Typedef         ctermfg=81
    hi Type            ctermfg=81                cterm=none
@@ -224,7 +224,7 @@ if &t_Co > 255
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   hi Comment         ctermfg=11 ctermbg=1 cterm=bold
+   hi Comment         ctermfg=226 cterm=bold
    hi CursorColumn                ctermbg=242
    hi ColorColumn                 ctermbg=242
    hi LineNr          ctermfg=250 ctermbg=236
@@ -264,7 +264,7 @@ if &t_Co > 255
        hi Title           ctermfg=203
        hi Visual          ctermbg=242   cterm=bold
 
-       hi Comment         ctermfg=11 cterm=bold
+       hi Comment         ctermfg=226   cterm=bold
        hi LineNr          ctermfg=239 ctermbg=235
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
