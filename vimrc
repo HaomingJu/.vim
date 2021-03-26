@@ -28,6 +28,7 @@ set wildmenu
 set wildmode=list:full                " 在命令行中，按下Tab键，显示当前所有可能的命令
 set softtabstop=4                     " 使用退格键，删除空格时，可以一次删除四个空格
 set fileformat=unix
+set updatetime=300
 
 " 设置Tab相关设置
 set tabstop=4                         " 设置制表符tab键的宽度为4空格
@@ -62,7 +63,7 @@ Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数�
 Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
 Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
 Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
-Plug 'Yggdroot/LeaderF'               "LeaderF插件:       用于模糊查找
+Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension' }   "LeaderF插件:       用于模糊查找
 Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲区
 Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的首和尾
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
