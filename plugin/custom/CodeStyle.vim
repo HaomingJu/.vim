@@ -32,5 +32,6 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset": -2,
             \ "AllowShortFunctionsOnASingleLine": "Empty",
             \ "PointerAlignment": "Left",
-            \ "SpaceBeforeParens": "Never"
+            \ "SpaceBeforeParens": "Never",
+            \ "AlignConsecutiveDeclarations": "true"
             \}

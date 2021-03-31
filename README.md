@@ -45,17 +45,23 @@ vim -c PlugInstall
 
 ## 3.1 快捷键说明
 
-| 快捷键 | 功能 | 定义 |
-| ---- | ---- | ---- |
-| Space | Leader键 | let mapleader="\<Space>" |
-| Ctrl+J | 窗口间光标跳转---向下 | nmap <C-J> :wincmd j<CR> |
-| Ctrl+K | 窗口间光标跳转---向上 | nmap <C-K> :wincmd k<CR> |
-| Ctrl+H | 窗口间光标跳转---向左 | nmap <C-H> :wincmd h<CR> |
-| Ctrl+L | 窗口间光标跳转---向右 | nmap <C-L> :wincmd l<CR> |
-| m | 高亮光标所在的单词 | nmap m gd |
-| F7 | 格式化C系代码 | |
-| F10 | 开闭目录树窗口 | map <F10> :NERDTreeToggle<CR> |
-| F12 | 开闭函数结构窗口 | map <F12> :TagbarToggle<CR> |
+| 快捷键 | 功能 | 快捷键 | 功能 | 
+| ---- | ---- | ---- | ---- |
+| Space | Leader键 | Ctrl+p | 在当前目录中快速查找文件 |
+| Ctrl+j | 窗口间光标跳转---向下 | Ctrl+f | 快速查找函数 |
+| Ctrl+k | 窗口间光标跳转---向上 | Ctrl+i | 在MRU中快速查找 |
+| Ctrl+h | 窗口间光标跳转---向左 | Ctrl+d | 向下快速翻页 |
+| Ctrl+l | 窗口间光标跳转---向右 | Ctrl+u | 向上快速翻页 |
+| <Space><Space>e | 前向快速移动 | <Space>t | 翻译光标在处英文 |
+| <Space><Space>b | 后向快速移动 | <Space>f | 全局搜索光标处字段 |
+| <Space><Space>j | 前向行快速移动 | <Space>b | 快速搜索Buffer |
+| <Space><Space>k | 后向行快速移动 | <Space>h | 快速搜索历史命令 |
+| <Space>m | 高亮光标处单词 | | |
+| F7 | 格式化C系代码 | | |
+| F10 | 开闭目录树窗口 | | |
+| F12 | 开闭函数结构窗口 | | |
+| m | 高亮光标所在的单词 | | |
+| ci | 注释所在行/块 | | |
 
 ## 3.2 特色功能
 

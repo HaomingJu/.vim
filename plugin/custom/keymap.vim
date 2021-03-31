@@ -33,3 +33,8 @@ nmap <M-m> :set fileformat=unix<CR>   " 将文件格式置为unix
 nmap m gd                             " 高亮光标所在的单词
 nmap fq <Esc><C-z><CR>                " 退回到终端界面
 map ci <Leader>ci                     " 快捷注释
+
+nnoremap H gT
+nnoremap L gt
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
