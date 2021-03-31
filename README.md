@@ -52,11 +52,11 @@ vim -c PlugInstall
 | Ctrl+k | 窗口间光标跳转---向上 | Ctrl+i | 在MRU中快速查找 |
 | Ctrl+h | 窗口间光标跳转---向左 | Ctrl+d | 向下快速翻页 |
 | Ctrl+l | 窗口间光标跳转---向右 | Ctrl+u | 向上快速翻页 |
-| <Space><Space>e | 前向快速移动 | <Space>t | 翻译光标在处英文 |
-| <Space><Space>b | 后向快速移动 | <Space>f | 全局搜索光标处字段 |
-| <Space><Space>j | 前向行快速移动 | <Space>b | 快速搜索Buffer |
-| <Space><Space>k | 后向行快速移动 | <Space>h | 快速搜索历史命令 |
-| <Space>m | 高亮光标处单词 | | |
+| \<Leader\>\<Leader\>e | (空格空格e)前向快速移动 | \<Leader\>t | 翻译光标在处英文 |
+| \<Leader\>\<Leader\>b | 后向快速移动 | \<Leader\>f | 全局搜索光标处字段 |
+| \<Leader\>\<Leader\>j | 前向行快速移动 | \<Leader\>b | 快速搜索Buffer |
+| \<Leader\>\<Leader\>k | 后向行快速移动 | \<Leader\>h | 快速搜索历史命令 |
+| \<Leader\>\<Leader\>m | 高亮光标处单词 | | |
 | F7 | 格式化C系代码 | | |
 | F10 | 开闭目录树窗口 | | |
 | F12 | 开闭函数结构窗口 | | |
