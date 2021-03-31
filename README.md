@@ -65,11 +65,11 @@ vim -c PlugInstall
 
 ## 3.2 特色功能
 
-插件安装
+插件安装 [手动安装 :PlugInstall]
 
 ![PlugInstall](doc/img/PlugInstall.gif)
 
-文件搜索 [来自CtrlP]
+文件搜索 [快捷键 Ctrl+P] 
 
 ![CtrlP](doc/img/CtrlP.gif)
 
@@ -85,24 +85,24 @@ Python语法解析补全 [来自coc language server: jedi]
 
 ![Python](doc/img/coc_python.gif)
 
-CMake语法补全 [来自coc]
+CMake语法补全 [快捷键 Shift+K]
 
 ![cmake](doc/img/cmake.gif)
 
 
-注释代码 [来自]
+注释代码 [快捷键 ci]
 
 ![comment](doc/img/comment.gif)
 
-快速移动 [来自easy-motion]
+快速移动 [来自easy-motion 快捷键 \<Leader\>\<Leader\>e \<Leader\>\<Leader\>b]
 
 ![easy-motion](doc/img/easy_motion.gif)
 
-目录树 [来自NERDTree]
+目录树 [快捷键 F10]
 
 ![nerdtree](doc/img/nerd_tree.gif)
 
-函数表搜索
+函数表搜索 [快捷键 Ctrl+F]
 
 ![funcs](doc/img/funcs.gif)
 
