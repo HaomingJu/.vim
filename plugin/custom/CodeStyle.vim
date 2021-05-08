@@ -33,5 +33,7 @@ let g:clang_format#style_options = {
             \ "AllowShortFunctionsOnASingleLine": "Empty",
             \ "PointerAlignment": "Left",
             \ "SpaceBeforeParens": "Never",
-            \ "AlignConsecutiveDeclarations": "true"
+            \ "AlignConsecutiveDeclarations": "true",
+            \ "NamespaceIndentation": "All",
+            \ "FixNamespaceComments": "true"
             \}
