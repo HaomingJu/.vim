@@ -18,6 +18,7 @@ antigen bundle cp
 antigen bundle extract
 antigen bundle history
 antigen bundle docker
+antigen bundle docker-compose
 antigen bundle dash
 antigen bundle 'wfxr/forgit'
 
@@ -61,3 +62,19 @@ eval "$(navi widget zsh)"
 
 #export http_proxy="http://127.0.0.1:12333"
 #export https_proxy="http://127.0.0.1:12333"
+#
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+
+fpath=(~/.zsh/completion $fpath)
+
+#eval "$(starship init zsh)"
+
+export CCACHE_PREFIX="distcc"
+export CC="ccache gcc" CXX="ccache g++"
+export DISTCC_HOSTS="gpu/16 localhost/8"
+export DISTCC_LOG="/var/log/trunk/distcc"

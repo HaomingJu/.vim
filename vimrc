@@ -79,11 +79,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-
-" 暂时不使用
-"Plug 'tpope/vim-fugitive'             "fugitive插件:      git工具
-"Plug 'airblade/vim-gitgutter'         "gitgutter插件：    用于显示Git diff等
-
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
@@ -100,6 +96,9 @@ call plug#end()
 :source ~/.vim/plugin/custom/Functions.vim
 :source ~/.vim/plugin/custom/CodeStyle.vim
 
+
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt=0
 
 call SwitchColor()
 call Terminal_MetaMode(0)
