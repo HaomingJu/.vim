@@ -55,6 +55,8 @@ set cursorcolumn                      " 高亮光标所在列
 set nobackup
 set nowritebackup
 
+packadd termdebug
+
 " 插件安装管理器要安装的插件列表 Base URL: https://github.com
 call plug#begin()
 Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构
@@ -79,13 +81,12 @@ Plug 'itchyny/vim-cursorword'
 Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'puremourning/vimspector'
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
 :source ~/.vim/plugin/custom/AutoCmd.vim
 :source ~/.vim/plugin/custom/NERDTreeConfig.vim
-:source ~/.vim/plugin/custom/YouCompletaMeConfig.vim
 :source ~/.vim/plugin/custom/LittlePluginConfig.vim
 :source ~/.vim/plugin/custom/GitGutterConfig.vim
 :source ~/.vim/plugin/custom/CocConfig.vim
@@ -97,8 +98,7 @@ call plug#end()
 :source ~/.vim/plugin/custom/CodeStyle.vim
 
 
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt=0
+"let g:vimspector_enable_mappings = 'HUMAN'
 
 call SwitchColor()
 call Terminal_MetaMode(0)

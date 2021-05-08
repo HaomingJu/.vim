@@ -1,12 +1,8 @@
-let mapleader="\<Space>"    " 修改了leader键盘
-"nmap <C-H> <C-W>h           " 窗口间光标跳转---向下
-"nmap <C-J> <C-W>j           " 窗口间光标跳转---向上
-"nmap <C-K> <C-W>k           " 窗口间光标跳转---向右
-"nmap <C-L> <C-W>l           " 窗口间光标跳转---向左
-nmap <C-H> :wincmd h<CR>           " 窗口间光标跳转---向下
-nmap <C-J> :wincmd j<CR>           " 窗口间光标跳转---向上
-nmap <C-K> :wincmd k<CR>           " 窗口间光标跳转---向右
-nmap <C-L> :wincmd l<CR>           " 窗口间光标跳转---向左
+let mapleader="\<Space>"
+nmap <C-H> :wincmd h<CR>
+nmap <C-J> :wincmd j<CR>
+nmap <C-K> :wincmd k<CR>
+nmap <C-L> :wincmd l<CR>
 
 map <Leader>w :w<CR>                    " 保存文件
 map <Leader>s :vsplit<CR>               " 窗口竖向分割
