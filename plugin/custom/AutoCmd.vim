@@ -10,3 +10,7 @@ endfunc
 autocmd InsertLeave * :call SwitchInputMethod()
 autocmd BufCreate *  :call SwitchInputMethod()
 autocmd BufEnter *  :call SwitchInputMethod()
+
+
+"autocmd FileType cpp,hpp,h,c :call coc#config("suggest.autoTrigger", "none")
+"autocmd FileType vim,python,tex :call coc#config("suggest.autoTrigger", "always")
