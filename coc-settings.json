@@ -8,31 +8,7 @@
   "suggest.enablePreview": true,
   "suggest.noselect": false,
   "python.jediEnabled": true,
-  "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "hpp",
-                "h"
-            ],
-            "rootPatterns": [
-                ".ccls",
-                "compile_commands.json",
-                ".git/",
-                ".vim/"
-            ],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                },
-                "highlight": {
-                    "lsRanges": true
-                }
-            }
-        }
-  },
+  "clangd.semanticHighlighting": true,
   "translator.engines": [
       "youdao",
       "google"

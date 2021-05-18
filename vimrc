@@ -80,10 +80,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/vim-cursorword'
 Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight', {'branch': 'master'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Plug 'puremourning/vimspector'
+Plug 'octol/vim-cpp-enhanced-highlight'
+
 
 call plug#end()
 
