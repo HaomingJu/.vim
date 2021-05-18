@@ -34,3 +34,5 @@ nnoremap H gT
 nnoremap L gt
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
+map Q <Nop>

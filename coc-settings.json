@@ -13,7 +13,9 @@
             "command": "ccls",
             "filetypes": [
                 "c",
-                "cpp"
+                "cpp",
+                "hpp",
+                "h"
             ],
             "rootPatterns": [
                 ".ccls",

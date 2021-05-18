@@ -81,7 +81,10 @@ Plug 'itchyny/vim-cursorword'
 Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 "Plug 'puremourning/vimspector'
+
 call plug#end()
 
 :source ~/.vim/plugin/custom/keymap.vim
@@ -96,9 +99,11 @@ call plug#end()
 :source ~/.vim/plugin/custom/RainBow.vim
 :source ~/.vim/plugin/custom/Functions.vim
 :source ~/.vim/plugin/custom/CodeStyle.vim
+:source ~/.vim/plugin/custom/markdown.vim
 
 
 "let g:vimspector_enable_mappings = 'HUMAN'
+
 
 call SwitchColor()
 call Terminal_MetaMode(0)
