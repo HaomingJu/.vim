@@ -1,6 +1,6 @@
 "Coc 插件
 
-call coc#add_extension('coc-json', 'coc-cmake', 'coc-snippets', 'coc-tsserver', 'coc-python', 'coc-html', 'coc-translator', 'coc-pairs', 'coc-calc', 'coc-syntax')
+call coc#add_extension('coc-clangd', 'coc-json', 'coc-cmake', 'coc-snippets', 'coc-python', 'coc-translator', 'coc-pairs')
 
 " Coc补全, Tab触发
 function! s:check_back_space() abort
@@ -50,3 +50,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+set updatetime=300
+set shortmess+=c
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
