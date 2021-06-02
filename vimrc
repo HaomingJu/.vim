@@ -66,7 +66,6 @@ Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
 Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
 Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
 Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension' }   "LeaderF插件:       用于模糊查找
-Plug 'vim-ctrlspace/vim-ctrlspace'    "ctrlspace插件:     用于管理缓冲区
 Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的首和尾
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
 Plug 'easymotion/vim-easymotion'
@@ -78,13 +77,14 @@ Plug 'tpope/vim-speeddating'          " 强化数字自增/自减
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/vim-cursorword'
-Plug 'ryanoasis/vim-devicons', {'tag': '1.0.0'}
+Plug 'ryanoasis/vim-devicons', {'branch': 'master'}
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jackguo380/vim-lsp-cxx-highlight', {'branch': 'master'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Plug 'puremourning/vimspector'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 
 call plug#end()

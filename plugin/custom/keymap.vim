@@ -13,7 +13,6 @@ nmap <Leader>f :CtrlSF <C-R><C-W><CR>   " 搜索增强
 map <Leader>e :CocDiagnostics<CR>
 
 
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>     " YCM: 跳转至定义处
 
 
 " 功能键系列
