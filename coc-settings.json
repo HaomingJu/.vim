@@ -8,7 +8,6 @@
   "suggest.enablePreview": true,
   "suggest.noselect": false,
   "python.jediEnabled": true,
-  "clangd.semanticHighlighting": true,
   "translator.engines": [
       "youdao",
       "google"
