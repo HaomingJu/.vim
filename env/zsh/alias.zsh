@@ -1,0 +1,12 @@
+# 命令别名
+alias CL='clang-format-3.8 -i'
+alias ll='ls -alh'
+alias l='ls -lh'
+alias g='git status'
+alias gb='git branch -avv'
+alias t='tig'
+alias c='clang-format-3.8 -i'
+alias vi='vim'
+alias v='vim'
+alias cp='cpv'
+alias rm='trash-put'
