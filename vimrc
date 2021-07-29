@@ -9,6 +9,8 @@
 syntax enable
 syntax on
 filetype plugin indent on
+set encoding=UTF-8
+
 
 
 " 其他设置
@@ -62,7 +64,6 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'            "NERDTree插件:      显示目录树形结构
 Plug 'scrooloose/nerdcommenter'       "NERDCommenter插件: 用于注释
 Plug 'majutsushi/tagbar'              "tagbar插件         用于显示函数列表
-Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
 Plug 'rking/ag.vim'                   "Ag插件:            用于工程内全局文本搜索
 Plug 'dyng/ctrlsf.vim'                "ctrlsf插件:        更好用的代码查找工具
 Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension' }   "LeaderF插件:       用于模糊查找
@@ -70,21 +71,25 @@ Plug 'Yggdroot/indentLine'            "indentLine插件:    用于连接for的�
 Plug 'elzr/vim-json'                  "vim-json插件:      用于更好的显示json文件
 Plug 'easymotion/vim-easymotion'
 Plug 'luochen1990/rainbow'            "彩虹括号
-Plug 'itchyny/lightline.vim'
 Plug 'rhysd/vim-clang-format'         "Clang-Format插件： 用于格式化代码风格
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-speeddating'          " 强化数字自增/自减
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/vim-cursorword'
-Plug 'ryanoasis/vim-devicons', {'branch': 'master'}
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'jackguo380/vim-lsp-cxx-highlight', {'branch': 'master'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-"Plug 'puremourning/vimspector'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons', {'branch': 'master'}
+
+"Plug 'itchyny/lightline.vim'
+"Plug 'puremourning/vimspector'
+"Plug 'jackguo380/vim-lsp-cxx-highlight', {'branch': 'master'}
+"Plug 'SublimeText/CTags'              "CTags插件:         用于跳转
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 
 
 call plug#end()
@@ -102,10 +107,6 @@ call plug#end()
 :source ~/.vim/plugin/custom/Functions.vim
 :source ~/.vim/plugin/custom/CodeStyle.vim
 :source ~/.vim/plugin/custom/markdown.vim
-
-
-"let g:vimspector_enable_mappings = 'HUMAN'
-
 
 call SwitchColor()
 call Terminal_MetaMode(0)

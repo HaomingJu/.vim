@@ -3,7 +3,8 @@ noremap <C-p> :LeaderfFile<CR>
 noremap <C-f> :LeaderfBufTag<CR>
 noremap <C-i> :LeaderfMru<CR>
 noremap <Leader>h :LeaderfHistoryCmd<CR>
-" noremap <C-@> :LeaderfBuffer<CR>
+
+noremap <C-@> :LeaderfBuffer<CR>
 
 
 let g:Lf_HideHelp = 1
